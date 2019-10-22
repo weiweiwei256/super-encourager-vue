@@ -1,36 +1,19 @@
 <template>
-  <div id="app">
-    <img src="./assets/logo.png">
-    <div>
-      <p>
-        If Element is successfully added to this project, you'll see an
-        <code v-text="'<el-button>'"></code>
-        below
-      </p>
-      <el-button>el-button</el-button>
+    <div id='root'>
+        <el-tabs tab-position="'left'"
+            style="height: 200px;">
+            <el-tab-pane label="放松一下">用户管理</el-tab-pane>
+            <el-tab-pane label="开发辅助">配置管理</el-tab-pane>
+            <el-tab-pane label="减压游戏">角色管理</el-tab-pane>
+        </el-tabs>
     </div>
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
 </template>
-
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 
 export default {
-  name: 'app',
-  components: {
-    HelloWorld
+  data() {
+    return {
+    };
   }
-}
+};
 </script>
-
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
