@@ -10,6 +10,9 @@
   "dependencies": {
     "core-js": "^3.3.2",
     "element-ui": "^2.4.5",
+    "flex.css": "^1.1.7",
+    "less": "^3.10.3",
+    "less-loader": "^5.0.0",
     "vue": "^2.6.10"
   },
   "devDependencies": {
