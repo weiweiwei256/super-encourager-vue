@@ -11,10 +11,10 @@
         <div class='hi-container'>
             <span class='title'>一言精选: </span>
             <img class='icon'
-                src='@/assets/reload.png'
+                src='@/assets/img/reload.png'
                 @click.stop='getHiWord'>
             <img class='icon'
-                src='@/assets/setting.png'>
+                src='@/assets/img/setting.png'>
             <p class='hi-content'>{{hiData.hitokoto}}</p>
             <p class='from'>出处:
                 <span style='font-weight:bold'>{{hiData.from }}</span> 类型:
@@ -34,7 +34,7 @@
                 :hide-after='5000'
                 placement="top">
                 <img class='image-content'
-                    src='@/assets/石原里美.jpeg'>
+                    src='@/assets/img/石原里美.jpeg'>
             </el-tooltip>
             <el-checkbox v-model="isCollect"
                 class='combo'

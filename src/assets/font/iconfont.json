@@ -1,0 +1,30 @@
+{
+  "id": "1479005",
+  "name": "super encourager",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon",
+  "description": "超级鼓励师图标库",
+  "glyphs": [
+    {
+      "icon_id": "6222026",
+      "name": "礼物",
+      "font_class": "ArtboardCopy",
+      "unicode": "e9d0",
+      "unicode_decimal": 59856
+    },
+    {
+      "icon_id": "10190590",
+      "name": "工具",
+      "font_class": "gongju",
+      "unicode": "e640",
+      "unicode_decimal": 58944
+    },
+    {
+      "icon_id": "10947443",
+      "name": "api",
+      "font_class": "api",
+      "unicode": "e69e",
+      "unicode_decimal": 59038
+    }
+  ]
+}
