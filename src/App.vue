@@ -1,21 +1,15 @@
 <template>
     <div id='root'>
-        <el-tabs tab-position="left"
-            style="height: 100%">
-            <el-tab-pane label="放松一下">用户管理</el-tab-pane>
-            <el-tab-pane label="开发辅助">
-                开发辅助
-                <assist></assist>
-            </el-tab-pane>
-            <el-tab-pane label="减压游戏">角色管理</el-tab-pane>
-        </el-tabs>
+        <common-API></common-API>
+        <div>辅助工具</div>
+        <div>减压放松</div>
     </div>
 </template>
 <script>
-import Assist from '@/views/Assist.vue'
+import CommonAPI from '@/views/CommonAPI.vue'
 export default {
   components: {
-    Assist
+    CommonAPI
   },
   data() {
     return {
@@ -27,7 +21,8 @@ export default {
 html,
 body,
 #app,
-#root {
+#root,
+.main {
     height: 100%;
 }
 </style>

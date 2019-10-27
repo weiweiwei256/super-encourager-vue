@@ -10,6 +10,7 @@
   "dependencies": {
     "core-js": "^3.3.2",
     "element-ui": "^2.4.5",
+    "eslint-plugin-html": "^6.0.0",
     "flex.css": "^1.1.7",
     "less": "^3.10.3",
     "less-loader": "^5.0.0",
@@ -17,12 +18,15 @@
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^4.0.0",
-    "@vue/cli-plugin-eslint": "^4.0.0",
+    "@vue/cli-plugin-eslint": "^4.0.5",
     "@vue/cli-service": "^4.0.0",
+    "@vue/eslint-config-prettier": "^5.0.0",
     "babel-eslint": "^10.0.3",
     "babel-plugin-component": "^1.1.1",
     "eslint": "^5.16.0",
+    "eslint-plugin-prettier": "^3.1.1",
     "eslint-plugin-vue": "^5.0.0",
+    "prettier": "^1.18.2",
     "vue-cli-plugin-element": "^1.0.1",
     "vue-template-compiler": "^2.6.10"
   },
@@ -33,7 +37,8 @@
     },
     "extends": [
       "plugin:vue/essential",
-      "eslint:recommended"
+      "eslint:recommended",
+      "@vue/prettier"
     ],
     "rules": {},
     "parserOptions": {

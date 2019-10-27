@@ -1,0 +1,120 @@
+{
+    "MDN": [
+        {
+            "name": "String",
+            "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String"
+        },
+        {
+            "name": "Array",
+            "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array"
+        },
+        {
+            "name": "Date",
+            "url": "https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Date"
+        },
+        {
+            "name": "Map",
+            "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map"
+        },
+        {
+            "name": "Object",
+            "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object"
+        },
+        {
+            "name": "Element",
+            "url": "https://developer.mozilla.org/en-US/docs/Web/API/Element"
+        },
+        {
+            "name": "Set",
+            "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set"
+        },
+        {
+            "name": "Math",
+            "url": "https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Math"
+        },
+        {
+            "name": "Number",
+            "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number"
+        }
+    ],
+    "前端模块": [
+        {
+            "name": "moment",
+            "url": "http://momentjs.cn/",
+            "desc": "JavaScript日期处理类库"
+        },
+        {
+            "name": "v-distpicker",
+            "url": "http://momentjs.cn/",
+            "desc": "可用于中国省，市和地区的灵活，高度可用区域选择器"
+        },
+        {
+            "name": "vConsole",
+            "url": "https://github.com/Tencent/vConsole",
+            "desc": "用于移动网页的轻量级，可扩展的前端开发人员工具,用于移动端调试"
+        },
+        {
+            "name": "howler",
+            "url": "https://github.com/goldfire/howler.js",
+            "desc": "适用于现代网络的Javascript音频库"
+        },
+        {
+            "name": "v-chart",
+            "url": "https://v-charts.js.org/#/"
+        }
+    ],
+    "Node模块": [
+        {
+            "name": "cron",
+            "url": "https://github.com/kelektiv/node-cron#readme",
+            "desc": "比setIntervl更强大触发任务库,支持自然时间执行/固定时间间隔执行等"
+        }
+    ],
+    "手册": [
+        {
+            "name": "vue官网",
+            "url": "https://cn.vuejs.org/v2/guide/"
+        },
+        {
+            "name": "mint-ui",
+            "url": "https://mint-ui.github.io/docs/#/zh-cn2"
+        },
+        {
+            "name": "jquery",
+            "url": " http://jquery.cuishifeng.cn/"
+        },
+        {
+            "name": "caniuse",
+            "url": "https://caniuse.com/"
+        },
+        {
+            "name": "node官方文档",
+            "url": "http://nodejs.cn/api/"
+        },
+        {
+            "name": "ES6 阮一峰",
+            "url": "http://es6.ruanyifeng.com/"
+        },
+        {
+            "name": "linux 命令大全",
+            "url": "https://www.runoob.com/linux/linux-command-manual.html"
+        }
+    ],
+    "推荐": [
+        {
+            "name": "vimium",
+            "url": "https://www.jianshu.com/p/f803bbba0ba5",
+            "desc": "让使用chrome快的飞起"
+        },
+        {
+            "name": "Whistle",
+            "url": "https://www.jianshu.com/p/3b483b416f9d",
+            "desc": "快速构建本地代码,可用于移动端真机联调,与Chrome插件SwitchyOmega搭配效果更加"
+        },
+        {
+            "name": "SwitchyOmega",
+            "url": "https://proxy-switchyomega.com/",
+            "desc": "快速配置chrome的代理模式,活用规则快速切换本地代码使用的测试/线上服务"
+        }
+    ]
+}

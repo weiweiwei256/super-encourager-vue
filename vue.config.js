@@ -6,10 +6,13 @@ module.exports = {
     outputDir,
     assetsDir,
     productionSourceMap: false,
+
     chainWebpack: config => {
         config.plugin('html').tap(args => {
             args[0].minify = false
             return args
         })
     },
+
+    lintOnSave: false
 }
