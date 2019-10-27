@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import './plugins/axios'
 import 'flex.css'
 import App from './App.vue'
 import './plugins/element.js'

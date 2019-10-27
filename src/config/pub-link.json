@@ -54,6 +54,11 @@
             "desc": "用于移动网页的轻量级，可扩展的前端开发人员工具,用于移动端调试"
         },
         {
+            "name": "flex.css",
+            "url": "https://codepen.io/webstermobile/pen/apXEER/",
+            "desc": "flex.css，轻量级移动端布局神器，让你用最快的速度，并且用最优雅的方式完成复杂的移动端布局，让你专注于编写内容呈现效果，完美兼容Android，ios，微信端。"
+        },
+        {
             "name": "howler",
             "url": "https://github.com/goldfire/howler.js",
             "desc": "适用于现代网络的Javascript音频库"

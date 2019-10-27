@@ -1,6 +1,5 @@
 <template>
     <div class="link-group">
-        <h5></h5>
         <el-divider content-position="left">{{title}}</el-divider>
         <template v-for="(item,index) in list">
             <el-tooltip class='link'
@@ -19,14 +18,11 @@
 </template>
 
 <script>
-import { Link, Popover, Tooltip, Divider } from 'element-ui'
+import { Divider } from 'element-ui'
 
 export default {
-    name: 'LinkGroup',
+    name: 'Encourager',
     components: {
-        ElLink: Link,
-        ElPopover: Popover,
-        ElTooltip: Tooltip,
         ElDivider: Divider,
     },
     props: {
