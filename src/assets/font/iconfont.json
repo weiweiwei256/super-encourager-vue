@@ -6,25 +6,32 @@
   "description": "超级鼓励师图标库",
   "glyphs": [
     {
-      "icon_id": "6222026",
+      "icon_id": "1898479",
+      "name": "刷新",
+      "font_class": "shuaxin1",
+      "unicode": "e711",
+      "unicode_decimal": 59153
+    },
+    {
+      "icon_id": "5677220",
       "name": "礼物",
-      "font_class": "ArtboardCopy",
-      "unicode": "e9d0",
-      "unicode_decimal": 59856
+      "font_class": "liwu",
+      "unicode": "e614",
+      "unicode_decimal": 58900
     },
     {
-      "icon_id": "10190590",
-      "name": "工具",
-      "font_class": "gongju",
-      "unicode": "e640",
-      "unicode_decimal": 58944
-    },
-    {
-      "icon_id": "10947443",
+      "icon_id": "7409471",
       "name": "api",
-      "font_class": "api",
-      "unicode": "e69e",
-      "unicode_decimal": 59038
+      "font_class": "api1",
+      "unicode": "e64f",
+      "unicode_decimal": 58959
+    },
+    {
+      "icon_id": "10262050",
+      "name": "设 置",
+      "font_class": "shezhi",
+      "unicode": "e611",
+      "unicode_decimal": 58897
     }
   ]
 }

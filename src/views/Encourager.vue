@@ -10,11 +10,12 @@
         </div>
         <div class='hi-container'>
             <span class='title'>一言精选: </span>
-            <img class='icon'
-                src='@/assets/img/reload.png'
-                @click.stop='getHiWord'>
-            <img class='icon'
-                src='@/assets/img/setting.png'>
+            <span class='icon iconfont'
+                @click.stop='getHiWord'>&#xe711;
+
+            </span>
+            <span class='icon iconfont'>&#xe611;</span>
+
             <p class='hi-content'>{{hiData.hitokoto}}</p>
             <p class='from'>出处:
                 <span style='font-weight:bold'>{{hiData.from }}</span> 类型:
@@ -124,18 +125,18 @@ export default {
 #encourager {
     height: 100%;
     .header {
-        font-size: 12px;
+        font-size: 16px;
     }
     .title {
-        font-size: 12px;
+        font-size: 16px;
         font-weight: bold;
         text-align: left;
     }
     .hi-container {
+        user-select: text;
         .icon {
             width: 18px;
             height: 18px;
-            vertical-align: text-bottom;
         }
         .hi-content {
             width: 80%;
@@ -145,15 +146,15 @@ export default {
             text-indent: 25px;
             text-align: left;
             font-weight: bold;
-            font-size: 14px;
+            font-size: 18px;
         }
         .from {
             text-align: right;
-            font-size: 12px;
+            font-size: 16px;
         }
         .thanks {
             text-align: center;
-            font-size: 12px;
+            font-size: 16px;
         }
     }
     .image-container {
@@ -163,7 +164,7 @@ export default {
             margin-top: 10px;
         }
         .combo {
-            font-size: 12px;
+            font-size: 16px;
         }
     }
 }
