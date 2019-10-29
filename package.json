@@ -5,8 +5,8 @@
     "scripts": {
         "serve": "vue-cli-service serve",
         "build": "vue-cli-service build",
-        "local-build": "vue-cli-service build --mode development",
-        "lint": "vue-cli-service lint"
+        "lint": "vue-cli-service lint",
+        "local-build": "vue-cli-service build --mode development"
     },
     "dependencies": {
         "core-js": "^3.3.2",
@@ -16,7 +16,8 @@
         "flex.css": "^1.1.7",
         "less": "^3.10.3",
         "less-loader": "^5.0.0",
-        "vue": "^2.6.10"
+        "vue": "^2.6.10",
+        "vuex": "^3.0.1"
     },
     "devDependencies": {
         "@vue/cli-plugin-babel": "^4.0.0",

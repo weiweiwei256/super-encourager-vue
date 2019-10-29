@@ -1,7 +1,7 @@
 <template>
     <div id="encourager"
         ref='encourager'>
-        <h3>鼓励</h3>
+        <h2>鼓励</h2>
         <div class='header'
             flex='main:justify'>
             <span>当前时间: {{time}}</span>

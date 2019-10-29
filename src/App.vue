@@ -14,24 +14,34 @@
         <encourager v-show='activeItem===ENCOURAGER'>
         </encourager>
         <common-API v-show='activeItem===COMMONAPI'></common-API>
+        <test v-show='activeItem===TEST'></test>
     </div>
 </template>
 <script>
 import CommonAPI from '@/views/CommonAPI.vue'
 import Encourager from '@/views/Encourager.vue'
+import Test from '@/test/Test.vue'
 export default {
   components: {
     CommonAPI,
-    Encourager
+    Encourager,
+    Test
   },
   data() {
     return {
-      activeItem: 'encourager',
+      activeItem: '',
       ENCOURAGER: 'encourager',
       COMMONAPI: 'common-API',
       isMoveNav: false,
       yOffset: 0,
+
+      TEST: 'test'
     };
+  },
+  created() {
+    // this.activeItem = this.ENCOURAGER;
+    // TEST
+    this.activeItem = this.TEST;
   },
   methods: {
     handleOver() {
