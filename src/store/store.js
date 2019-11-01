@@ -7,9 +7,12 @@ import fakeVscode from '@/test/fake-vscode.js'
 Vue.use(Vuex)
 // 通过bus对后端返回数据进行统一的触发
 window.addEventListener('message', event => {
-    console.log(event)
-    let data = event.data
-    bus.publish(data.msgCode, event.data)
+    let { data } = event
+    if (data.msgCode) {
+        bus.publish(data.msgCode, event.data)
+    } else {
+        console.error('未识别message' + JSON.stringify(event))
+    }
 })
 const testMode = process.env.NODE_ENV === 'development'
 const vscode = testMode ? fakeVscode : acquireVsCodeApi()
@@ -35,7 +38,7 @@ const store = new Vuex.Store({
                 context.commit(types.TEST_MUTATIONS, 'action invoke')
             })
         },
-        [types.POST_MESSAGE]: (context,{cmdKey, value}) => {
+        [types.POST_MESSAGE]: (context, { cmdKey, value }) => {
             return new Promise((resolve, reject) => {
                 // 通过唯一msgCode 来确保获取的消息就是发送的消息
                 let msgCode = utils.randomString(8)

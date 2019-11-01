@@ -28,7 +28,7 @@ export default {
             this.dispatch(types.TEST_ACTIONS)
         },
         async testSendMessage() {
-            let data = await this.sendMessage(cmds.LOG, { msg: 'arg' })
+            let data = await this.sendMessage(cmds.LOG, { msg: 'This is a message from web.' })
         }
     }
 }

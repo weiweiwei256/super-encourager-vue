@@ -9,7 +9,12 @@ const extension = {
     // 后端接收到数据
     onDidReceiveMessage: function({ msgCode, cmdKey, value }) {
         console.log('extension receive:' + JSON.stringify(value))
-        let ret = mock[cmdKey]
+        let ret
+        if (mock[cmdKey] instanceof Function) {
+            ret = mock[cmdKey](value)
+        } else if (mock[cmdKey] instanceof Object) {
+            ret = mock[cmdKey]
+        }
         // 提取msgCode用于前端识别返回值
         ret.msgCode = msgCode
         this.postMessage(ret)
