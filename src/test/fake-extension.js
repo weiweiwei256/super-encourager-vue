@@ -1,23 +1,18 @@
 // 模拟扩展点extension
 // 模拟数据
-const mock = {
-    log: {
-        cmd: 'log',
-        value: 'aaaa',
-    },
-}
+import mock from './mock.js'
 const extension = {
-    // 向前端发送请求
+    // 模拟extension向前端发送请求
     postMessage: function(arg) {
         window.postMessage(arg)
     },
     // 后端接收到数据
-    onDidReceiveMessage: function(arg) {
-        let key = arg.key
-        let ret = mock[arg.cmd]
-        ret.key = key
+    onDidReceiveMessage: function({ msgCode, cmdKey, value }) {
+        console.log('extension receive:' + JSON.stringify(value))
+        let ret = mock[cmdKey]
+        // 提取msgCode用于前端识别返回值
+        ret.msgCode = msgCode
         this.postMessage(ret)
-        console.log('extension的返回值' + ret)
     },
 }
 

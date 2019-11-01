@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+        "target": "es2016",
+        "sourceMap": true,
+        "baseUrl": ".",
+        "moduleResolution": "node",
+        "paths": {
+            "@/*": ["./src/*"]
+        }
+    },
+    "include": ["./src"],
+    "exclude": ["node_modules", "build"]
+}

@@ -1,61 +1,34 @@
 <template>
     <div id='test'>
-        test
+        <h4>test</h4>
         <el-button @click.stop="handleMutations">invoke mutations</el-button>
         <el-button @click.stop="handleActions">invoke actions</el-button>
-        <el-button @click.stop='sendMessage2'>send message</el-button>
+        <el-button @click.stop='testSendMessage'>test send message</el-button>
     </div>
 </template>
 
 <script>
-import * as types from '@/store/types.js';
-import { mapGetters, mapMutations, mapActions } from 'vuex'
+import * as cmds from '@/global/cmd-constant.js';
 export default {
-    name: 'test',
+    name: 'Test',
     mounted() {
-        // console.log(this.$store.getters.vscode)
-        // console.log(this.code)
-
+        console.log(this.code)
     },
     computed: {
-        ...mapGetters({
-            code: 'vscode'
-        })
+        code: function () {
+            return this.getters('vscode')
+        }
     },
     methods: {
-        ...mapMutations(
-            {
-                invokeMutations: types.TEST_MUTATIONS
-            }
-        ),
-        ...mapActions(
-            {
-                invokeAction: types.TEST_ACTIONS,
-                sendMessage: types.TEST_POSTMESSAGE
-            }
-        ),
         handleMutations() {
-            // this.$store.commit(types.TEST_MUTATIONS, 'page invoke')
-            this.invokeMutations('page invoke');
+            this.commit(types.TEST_MUTATIONS, 'page invoke');
         },
-        // promise 调用
-        // handleActions() {
-        //     // this.$store.dispatch(types.TEST_ACTIONS)
-        //     this.invokeAction().then(data => {
-        //         console.log(data)
-        //     }).catch(err => {
-        //         console.log(err)
-        //     });
-        // }
         // 同步调用
-        async handleActions() {
-            // this.$store.dispatch(types.TEST_ACTIONS)
-            let data = await this.invokeAction()
-            console.log(data)
+        handleActions() {
+            this.dispatch(types.TEST_ACTIONS)
         },
-        async sendMessage2() {
-            let data = await this.sendMessage({ cmd: 'log', arg: 'arg' })
-            console.log('前端页面收到:' + JSON.stringify(data))
+        async testSendMessage() {
+            let data = await this.sendMessage(cmds.LOG, { msg: 'arg' })
         }
     }
 }
