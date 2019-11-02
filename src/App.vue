@@ -1,16 +1,7 @@
 <template>
     <div id='root'>
-        <div class='nav'
-            ref='nav'
-            @mouseover='handleOver'>
-            <el-radio-group v-model="activeItem">
-                <el-radio-button class="iconfont item"
-                    :label='ENCOURAGER'>&#xe614;
-                </el-radio-button>
-                <el-radio-button class="iconfont item"
-                    :label='COMMONAPI'>&#xe64f;</el-radio-button>
-            </el-radio-group>
-        </div>
+        <view-nav :def-view='activeItem'
+            @change='handleChange'></view-nav>
         <encourager v-show='activeItem===ENCOURAGER'>
         </encourager>
         <common-API v-show='activeItem===COMMONAPI'></common-API>
@@ -18,60 +9,37 @@
     </div>
 </template>
 <script>
+import * as cmds from '@/store/cmd-constant.js';
+import ViewNav from '@/components/ViewNav.vue'
 import CommonAPI from '@/views/CommonAPI.vue'
 import Encourager from '@/views/Encourager.vue'
 import Test from '@/test/Test.vue'
 export default {
-  components: {
-    CommonAPI,
-    Encourager,
-    Test
-  },
-  data() {
-    return {
-      activeItem: '',
-      ENCOURAGER: 'encourager',
-      COMMONAPI: 'common-API',
-      isMoveNav: false,
-      yOffset: 0,
-
-      TEST: 'test'
-    };
-  },
-  created() {
-    // this.activeItem = this.ENCOURAGER;
-    // TEST
-    this.activeItem = this.TEST;
-  },
-  methods: {
-    handleOver() {
-      let navDom = this.$refs['nav']
-      navDom.style.cursor = 'move';
-    }
-  },
-  mounted() {
-    let navDom = this.$refs['nav']
-    navDom.onmousedown = function (e) {
-      let y = e.clientY;
-      let t = navDom.offsetTop;
-      this.yOffset = y - t;
-      this.isMoveNav = true;
-      navDom.style.cursor = 'move';
-    }
-    navDom.onmousemove = function (e) {
-      if (this.isMoveNav == false) {
-        return;
-      }
-      var ny = e.clientY;
-      var nt = ny - this.yOffset;
-      navDom.style.top = nt + 'px';
-    }
-    navDom.onmouseup = function () {
-      //开关关闭
-      this.isMoveNav = false;
-      navDom.style.cursor = 'default';
-    }
-  }
+    components: {
+        ViewNav,
+        CommonAPI,
+        Encourager,
+        Test
+    },
+    data() {
+        return {
+            // TEST:
+            activeItem: 'test',
+            ENCOURAGER: 'encourager',
+            COMMONAPI: 'common-API',
+            TEST: 'test'
+        };
+    },
+    async mounted() {
+        // 初始化默认配置
+        let setting = await this.sendMessage(cmds.INIT)
+        this.$message(JSON.stringify(setting))
+    },
+    methods: {
+        handleChange(e) {
+            this.activeItem = e;
+        }
+    },
 };
 </script>
 <style lang='less'>

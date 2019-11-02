@@ -8,14 +8,15 @@
 </template>
 
 <script>
-import * as cmds from '@/global/cmd-constant.js';
+import * as cmds from '@/store/cmd-constant.js';
+import * as types from '@/store/types.js'
 export default {
     name: 'Test',
     mounted() {
-        console.log(this.code)
+        console.log(this.vscode)
     },
     computed: {
-        code: function () {
+        vscode: function () {
             return this.getters('vscode')
         }
     },
@@ -28,7 +29,7 @@ export default {
             this.dispatch(types.TEST_ACTIONS)
         },
         async testSendMessage() {
-            let data = await this.sendMessage(cmds.LOG, { msg: 'This is a message from web.' })
+            let data = await this.sendMessage(cmds.TEST)
         }
     }
 }

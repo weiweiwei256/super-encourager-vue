@@ -14,6 +14,9 @@ const extension = {
             ret = mock[cmdKey](value)
         } else if (mock[cmdKey] instanceof Object) {
             ret = mock[cmdKey]
+        } else if (!mock[cmdKey]) {
+            console.error('请增加命令:' + cmdKey + '的模拟数据')
+            return
         }
         // 提取msgCode用于前端识别返回值
         ret.msgCode = msgCode

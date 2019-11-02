@@ -14,21 +14,29 @@ window.addEventListener('message', event => {
         console.error('未识别message' + JSON.stringify(event))
     }
 })
+// 根据环境提供对应vscode对象
 const testMode = process.env.NODE_ENV === 'development'
 const vscode = testMode ? fakeVscode : acquireVsCodeApi()
 const store = new Vuex.Store({
     state: {
         vscode,
+        setting: undefined, // 包含 extension-setting和web-setting
     },
     getters: {
         vscode: state => {
             return state.vscode
+        },
+        setting: state => {
+            return state.stetting
         },
     },
     mutations: {
         [types.TEST_MUTATIONS]: (state, arg) => {
             console.log('test mutations')
             console.log(arg)
+        },
+        [types.SET_SETTING]: (state, setting) => {
+            state.setting = setting
         },
     },
     actions: {
