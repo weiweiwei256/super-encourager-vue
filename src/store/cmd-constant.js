@@ -4,5 +4,6 @@
 export const TEST = 'super/command/test'
 export const LOG = 'super/command/log'
 export const INIT = 'super/command/init'
-export const TEST_ACTIONS = 'super/command/test'
-export const POST_MESSAGE = 'super/command/postmessage'
+
+// encoureager page
+export const ENCOURAGER_IMAGE = 'super/command/encourager_image'

@@ -35,9 +35,9 @@
                 :hide-after='5000'
                 placement="top">
                 <img class='image-content'
-                    src='@/assets/img/石原里美.jpeg'>
+                    :src='imageUrl'>
             </el-tooltip>
-            <el-checkbox v-model="isCollect"
+            <el-checkbox v-model="isCollected"
                 class='combo'
                 @change="handleCollect">收藏至"⭐我的最爱"</el-checkbox>
         </div>
@@ -48,6 +48,7 @@
 const LOAD_TIP = '加载中...'
 const TYPE_MAP = new Map(
   [['a', '动画'], ['b', '漫画'], ['c', '游戏'], ['d', '小说'], ['e', '原创'], ['f', '来自网络'], ['g', '其他']])
+import * as cmds from '@/store/cmd-constant.js';
 export default {
   name: 'encoureager',
   components: {
@@ -65,7 +66,8 @@ export default {
         hitokoto: LOAD_TIP,
         from: LOAD_TIP
       },
-      isCollect: false,
+      imageUrl: '',
+      isCollected: false,
     }
   },
   computed: {
@@ -76,10 +78,8 @@ export default {
       return LOAD_TIP
     }
   },
-  created() {
-    console.log('鼓励页加载')
-  },
-  async mounted() {
+  async created() {
+    console.log('鼓励页获取配置' + JSON.stringify(this.getters('setting')))
     this.countDown = this.getters('setting').config.timeLast
     this.timer = setInterval(() => {
       let d = new Date()
@@ -95,12 +95,11 @@ export default {
       }, 1000)
     }
     this.getHiWord();
-    // 增加点击终止关闭监听
-    this.$refs['encourager'].addEventListener('click', this.handRootClock, true)
+
   },
   methods: {
     handleCollect() {
-      console.log(this.isCollect)
+      console.log(this.isCollected)
     },
     stopClose() {
       this.countDown = -1;
@@ -119,6 +118,14 @@ export default {
       // 移除终止监听
       this.$refs['encourager'].removeEventListener('click', this.handRootClock, true)
     },
+  },
+  async mounted() {
+    // 增加点击终止关闭监听
+    this.$refs['encourager'].addEventListener('click', this.handRootClock, true)
+
+    let { result } = await this.sendMessage(cmds.ENCOURAGER_IMAGE)
+    this.imageUrl = result.imageUrl;
+    this.isCollected = result.isCollected;
   },
   beforeDestroy() {
     clearInterval(this.timer)

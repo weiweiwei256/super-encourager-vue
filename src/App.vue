@@ -2,10 +2,10 @@
     <div id='root'>
         <view-nav :def-view='activeItem'
             @change='handleChange'></view-nav>
-        <encourager v-if='activeItem===ENCOURAGER'>
+        <encourager v-show='activeItem===ENCOURAGER'>
         </encourager>
-        <common-API v-if='activeItem===COMMONAPI'></common-API>
-        <test v-if='activeItem===TEST'></test>
+        <common-API v-show='activeItem===COMMONAPI'></common-API>
+        <test v-show='activeItem===TEST'></test>
     </div>
 </template>
 <script>
@@ -25,7 +25,7 @@ export default {
     data() {
         return {
             // TEST:
-            activeItem: 'test',
+            activeItem: 'encourager',
             ENCOURAGER: 'encourager',
             COMMONAPI: 'common-API',
             TEST: 'test'

@@ -27,9 +27,9 @@ Vue.mixin({
         },
     },
 })
-// 由于获取初始化 是异步返回 而很多页面高度依赖settings 所以初始化逻辑置于vue渲染之前 
-store.dispatch(types.POST_MESSAGE, { cmdKey: cmds.INIT }).then(setting => {
-    store.commit(types.SET_SETTING, setting)
+// 由于获取初始化 是异步返回 而很多页面高度依赖settings 所以初始化逻辑置于vue渲染之前
+store.dispatch(types.POST_MESSAGE, { cmdKey: cmds.INIT }).then(receivePkg => {
+    store.commit(types.SET_SETTING, receivePkg.result)
     new Vue({
         store,
         render: h => h(App),

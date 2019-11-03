@@ -37,6 +37,7 @@ const store = new Vuex.Store({
         },
         [types.SET_SETTING]: (state, setting) => {
             state.setting = setting
+            console.log('设置setting完成')
         },
     },
     actions: {
