@@ -24,7 +24,9 @@ const mock = {
                 timeLast: 10,
                 type: 'natural-hour',
             },
-            globalState: { hitokoto_type: 'a' },
+            globalState: {
+                encourager: { hitokoto_type: 'c' },
+            },
         }
     },
     // encourager page
@@ -32,13 +34,25 @@ const mock = {
         imageUrl: defaultImg,
         isCollected: true,
     },
-    [cmds.ENCOURAGER_CHANGE_IMAGE_COLLECT]: arg => {
+    [cmds.ENCOURAGER_CHANGE_IMAGE_COLLECT]: value => {
         return {
             msg: '改变成功',
         }
     },
     [cmds.STOP_CLOSE]: {
         msg: '终止自动关闭',
+    },
+    [cmds.BEFORE_CLOSE]: {
+        msg: '关闭前数据',
+    },
+    [cmds.UPDATE_WEB_CONFIG]: arg => {
+        let { page, key, value } = arg
+        console.log(page)
+        console.log(key)
+        console.log(value)
+        return {
+            msg: '更新webconfig',
+        }
     },
 }
 export default mock

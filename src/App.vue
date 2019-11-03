@@ -20,6 +20,7 @@
                 <encourager v-show='activeItem===ENCOURAGER'>
                 </encourager>
                 <common-API v-show='activeItem===COMMONAPI'></common-API>
+                <web-config v-show='activeItem===WEB_CONFIG'></web-config>
                 <test v-show='activeItem===TEST'></test>
             </div>
             <div class='page-footer'
@@ -35,12 +36,14 @@ import * as types from '@/store/types.js'
 import ViewNav from '@/components/ViewNav.vue'
 import CommonAPI from '@/views/CommonAPI.vue'
 import Encourager from '@/views/Encourager.vue'
+import WebConfig from '@/views/WebConfig.vue'
 import Test from '@/test/Test.vue'
 export default {
     components: {
         ViewNav,
         CommonAPI,
         Encourager,
+        WebConfig,
         Test
     },
     data() {
@@ -49,6 +52,7 @@ export default {
             activeItem: 'encourager',
             ENCOURAGER: 'encourager',
             COMMONAPI: 'common-API',
+            WEB_CONFIG: 'web-config',
             TEST: 'test',
             // count down
             Countdowner: undefined,
@@ -89,7 +93,6 @@ export default {
         stopClose() {
             this.countDown = -1;
             clearInterval(this.Countdowner)
-            console.log('终止自动关闭')
             this.sendMessage(cmds.STOP_CLOSE)
         },
         invokeClose() {
@@ -108,6 +111,10 @@ export default {
         // 增加点击终止关闭监听
         this.$refs['root'].addEventListener('click', this.handRootClock, true)
     },
+    beforeDestroy() {
+        // not work 
+        this.sendMessage(cmds.BEFORE_CLOSE)
+    }
 };
 </script>
 <style lang='less'>

@@ -8,10 +8,7 @@
             <span class='title'>一言精选: </span>
             <span class='icon iconfont'
                 @click.stop='getHiWord'>&#xe711;
-
             </span>
-            <span class='icon iconfont'>&#xe611;</span>
-
             <p class='hi-content'>{{hiData.hitokoto}}</p>
             <p class='from'>出处:
                 <span style='font-weight:bold'>{{hiData.from }}</span> 类型:
@@ -39,7 +36,6 @@
                     :src='imageUrl'
                     @click.stop='getImage'>
             </el-tooltip>
-
         </div>
     </div>
 </template>
@@ -90,7 +86,7 @@ export default {
       this.sendMessage(cmds.ENCOURAGER_CHANGE_IMAGE_COLLECT, { imageUrl: this.imageUrl, collectState: this.isCollected })
     },
     getHiWord() {
-      this.axios.get('https://v1.hitokoto.cn/?c=').then(data => {
+      this.axios.get(`https://v1.hitokoto.cn/?c=${this.getters('setting').globalState.encourager.hitokoto_type}`).then(data => {
         this.hiData = data.data;
       })
     },
@@ -108,6 +104,7 @@ export default {
 <style lang='less' scoped>
 #encourager {
     height: 100%;
+    overflow: auto;
     .header {
         font-size: 16px;
     }

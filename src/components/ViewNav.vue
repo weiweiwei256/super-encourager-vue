@@ -8,6 +8,8 @@
             </el-radio-button>
             <el-radio-button class="iconfont item"
                 :label='COMMONAPI'>&#xe64f;</el-radio-button>
+            <el-radio-button class="iconfont item"
+                :label='WEB_CONFIG'> &#xe611;</el-radio-button>
         </el-radio-group>
     </div>
 </template>
@@ -30,6 +32,7 @@ export default {
             radioValue: this.defView,
             ENCOURAGER: 'encourager',
             COMMONAPI: 'common-API',
+            WEB_CONFIG: 'web-config'
         };
     },
     watch: {
