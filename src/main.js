@@ -5,6 +5,7 @@ import App from './App.vue'
 import './plugins/element.js'
 import store from './store/store.js'
 import * as types from '@/store/types.js'
+import * as cmds from '@/store/cmd-constant.js'
 Vue.config.productionTip = false
 // 全局混入vuex快捷访问方法
 Vue.mixin({
@@ -26,7 +27,11 @@ Vue.mixin({
         },
     },
 })
-new Vue({
-    store,
-    render: h => h(App),
-}).$mount('#app')
+// 由于获取初始化 是异步返回 而很多页面高度依赖settings 所以初始化逻辑置于vue渲染之前 
+store.dispatch(types.POST_MESSAGE, { cmdKey: cmds.INIT }).then(setting => {
+    store.commit(types.SET_SETTING, setting)
+    new Vue({
+        store,
+        render: h => h(App),
+    }).$mount('#app')
+})

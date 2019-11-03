@@ -12,6 +12,7 @@ const mock = {
         return {}
     },
     [cmds.INIT]: () => {
+        console.log('发送设置!')
         return {
             config: {
                 isGif: false,

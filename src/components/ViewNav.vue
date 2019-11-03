@@ -80,7 +80,7 @@ export default {
     padding-top: 15px;
     padding-bottom: 15px;
     z-index: 10;
-
+    user-select: none;
     .item {
         margin-top: 3px;
         margin-bottom: 3px;

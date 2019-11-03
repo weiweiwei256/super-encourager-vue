@@ -2,14 +2,15 @@
     <div id='root'>
         <view-nav :def-view='activeItem'
             @change='handleChange'></view-nav>
-        <encourager v-show='activeItem===ENCOURAGER'>
+        <encourager v-if='activeItem===ENCOURAGER'>
         </encourager>
-        <common-API v-show='activeItem===COMMONAPI'></common-API>
-        <test v-show='activeItem===TEST'></test>
+        <common-API v-if='activeItem===COMMONAPI'></common-API>
+        <test v-if='activeItem===TEST'></test>
     </div>
 </template>
 <script>
 import * as cmds from '@/store/cmd-constant.js';
+import * as types from '@/store/types.js'
 import ViewNav from '@/components/ViewNav.vue'
 import CommonAPI from '@/views/CommonAPI.vue'
 import Encourager from '@/views/Encourager.vue'
@@ -30,11 +31,6 @@ export default {
             TEST: 'test'
         };
     },
-    async mounted() {
-        // 初始化默认配置
-        let setting = await this.sendMessage(cmds.INIT)
-        this.$message(JSON.stringify(setting))
-    },
     methods: {
         handleChange(e) {
             this.activeItem = e;
@@ -47,7 +43,6 @@ html,
 body,
 #app,
 #root {
-    user-select: none;
     height: 100%;
     margin: 0;
     color: auto;

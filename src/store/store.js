@@ -20,14 +20,14 @@ const vscode = testMode ? fakeVscode : acquireVsCodeApi()
 const store = new Vuex.Store({
     state: {
         vscode,
-        setting: undefined, // 包含 extension-setting和web-setting
+        setting: {}, // 包含 extension-setting和web-setting
     },
     getters: {
         vscode: state => {
             return state.vscode
         },
         setting: state => {
-            return state.stetting
+            return state.setting
         },
     },
     mutations: {

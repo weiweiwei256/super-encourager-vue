@@ -4,6 +4,10 @@
         <el-button @click.stop="handleMutations">invoke mutations</el-button>
         <el-button @click.stop="handleActions">invoke actions</el-button>
         <el-button @click.stop='testSendMessage'>test send message</el-button>
+        <h5>config</h5>
+        <div>{{setting.config}}</div>
+        <h5>globalState</h5>
+        <div>{{setting.globalState}}</div>
     </div>
 </template>
 
@@ -13,11 +17,11 @@ import * as types from '@/store/types.js'
 export default {
     name: 'Test',
     mounted() {
-        console.log(this.vscode)
+        console.log('settings:' + this.setting)
     },
     computed: {
-        vscode: function () {
-            return this.getters('vscode')
+        setting: function () {
+            return this.getters('setting')
         }
     },
     methods: {

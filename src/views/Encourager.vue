@@ -6,7 +6,7 @@
             flex='main:justify'>
             <span>当前时间: {{time}}</span>
             <span v-show='countDown>0'>自动关闭: {{countDown}}秒</span>
-            <span v-show='countDown<0'>请手动关闭</span>
+            <span v-show='countDown<=0'>请手动关闭</span>
         </div>
         <div class='hi-container'>
             <span class='title'>一言精选: </span>
@@ -59,7 +59,7 @@ export default {
       timer: undefined,
       time: LOAD_TIP,
       Countdowner: undefined,
-      countDown: 10,
+      countDown: 0,
       // hi
       hiData: {
         hitokoto: LOAD_TIP,
@@ -77,18 +77,26 @@ export default {
     }
   },
   created() {
+    console.log('鼓励页加载')
+  },
+  async mounted() {
+    this.countDown = this.getters('setting').config.timeLast
     this.timer = setInterval(() => {
       let d = new Date()
       this.time =
         d.toLocaleDateString() + " " + d.toLocaleTimeString()
     }, 1000)
-    this.Countdowner = setInterval(() => {
-      this.countDown--;
-      if (this.countDown <= 0) {
-        this.close();
-      }
-    }, 1000)
+    if (this.countDown > 0) {
+      this.Countdowner = setInterval(() => {
+        this.countDown--;
+        if (this.countDown <= 0) {
+          this.close();
+        }
+      }, 1000)
+    }
     this.getHiWord();
+    // 增加点击终止关闭监听
+    this.$refs['encourager'].addEventListener('click', this.handRootClock, true)
   },
   methods: {
     handleCollect() {
@@ -111,10 +119,6 @@ export default {
       // 移除终止监听
       this.$refs['encourager'].removeEventListener('click', this.handRootClock, true)
     },
-  },
-  mounted() {
-    // 增加点击终止关闭监听
-    this.$refs['encourager'].addEventListener('click', this.handRootClock, true)
   },
   beforeDestroy() {
     clearInterval(this.timer)
