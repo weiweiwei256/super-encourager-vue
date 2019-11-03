@@ -32,5 +32,13 @@ const mock = {
         imageUrl: defaultImg,
         isCollected: true,
     },
+    [cmds.ENCOURAGER_CHANGE_IMAGE_COLLECT]: arg => {
+        return {
+            msg: '改变成功',
+        }
+    },
+    [cmds.STOP_CLOSE]: {
+        msg: '终止自动关闭',
+    },
 }
 export default mock

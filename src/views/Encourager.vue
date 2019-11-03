@@ -1,12 +1,8 @@
 <template>
     <div id="encourager"
         ref='encourager'>
-        <h2>鼓励</h2>
-        <div class='header'
-            flex='main:justify'>
+        <div class='header'>
             <span>当前时间: {{time}}</span>
-            <span v-show='countDown>0'>自动关闭: {{countDown}}秒</span>
-            <span v-show='countDown<=0'>请手动关闭</span>
         </div>
         <div class='hi-container'>
             <span class='title'>一言精选: </span>
@@ -26,8 +22,13 @@
             </p>
         </div>
         <div class='image-container'>
-            <div class='title'>欣赏美图休息一下吧！！！</div>
-
+            <div class='title'
+                flex='main:justify'>
+                <span>欣赏美图休息一下吧！！！(点击切换下一张)</span>
+                <el-checkbox v-model="isCollected"
+                    class='combo'
+                    @change="handleCollect">收藏至"⭐我的最爱"</el-checkbox>
+            </div>
             <el-tooltip class='link'
                 content="点击切换至下一张"
                 transition='el-fade-in-linear'
@@ -35,11 +36,10 @@
                 :hide-after='5000'
                 placement="top">
                 <img class='image-content'
-                    :src='imageUrl'>
+                    :src='imageUrl'
+                    @click.stop='getImage'>
             </el-tooltip>
-            <el-checkbox v-model="isCollected"
-                class='combo'
-                @change="handleCollect">收藏至"⭐我的最爱"</el-checkbox>
+
         </div>
     </div>
 </template>
@@ -59,8 +59,6 @@ export default {
     return {
       timer: undefined,
       time: LOAD_TIP,
-      Countdowner: undefined,
-      countDown: 0,
       // hi
       hiData: {
         hitokoto: LOAD_TIP,
@@ -79,53 +77,28 @@ export default {
     }
   },
   async created() {
-    console.log('鼓励页获取配置' + JSON.stringify(this.getters('setting')))
-    this.countDown = this.getters('setting').config.timeLast
     this.timer = setInterval(() => {
       let d = new Date()
       this.time =
         d.toLocaleDateString() + " " + d.toLocaleTimeString()
     }, 1000)
-    if (this.countDown > 0) {
-      this.Countdowner = setInterval(() => {
-        this.countDown--;
-        if (this.countDown <= 0) {
-          this.close();
-        }
-      }, 1000)
-    }
     this.getHiWord();
-
+    this.getImage();
   },
   methods: {
     handleCollect() {
-      console.log(this.isCollected)
-    },
-    stopClose() {
-      this.countDown = -1;
-      clearInterval(this.Countdowner)
-    },
-    close() {
-      clearInterval(this.Countdowner)
+      this.sendMessage(cmds.ENCOURAGER_CHANGE_IMAGE_COLLECT, { imageUrl: this.imageUrl, collectState: this.isCollected })
     },
     getHiWord() {
       this.axios.get('https://v1.hitokoto.cn/?c=').then(data => {
         this.hiData = data.data;
       })
     },
-    handRootClock() {
-      this.stopClose();
-      // 移除终止监听
-      this.$refs['encourager'].removeEventListener('click', this.handRootClock, true)
-    },
-  },
-  async mounted() {
-    // 增加点击终止关闭监听
-    this.$refs['encourager'].addEventListener('click', this.handRootClock, true)
-
-    let { result } = await this.sendMessage(cmds.ENCOURAGER_IMAGE)
-    this.imageUrl = result.imageUrl;
-    this.isCollected = result.isCollected;
+    async getImage() {
+      let { result } = await this.sendMessage(cmds.ENCOURAGER_IMAGE)
+      this.imageUrl = result.imageUrl;
+      this.isCollected = result.isCollected;
+    }
   },
   beforeDestroy() {
     clearInterval(this.timer)

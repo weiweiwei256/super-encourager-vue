@@ -1,11 +1,32 @@
 <template>
-    <div id='root'>
+    <div id='root'
+        ref='root'>
         <view-nav :def-view='activeItem'
             @change='handleChange'></view-nav>
-        <encourager v-show='activeItem===ENCOURAGER'>
-        </encourager>
-        <common-API v-show='activeItem===COMMONAPI'></common-API>
-        <test v-show='activeItem===TEST'></test>
+        <div class='page-container'
+            flex='dir:top'>
+            <div class='page-header'
+                flex-box="0"
+                flex='main:justify cross:center'>
+                <div class='title'>{{pageTitle}}</div>
+                <span v-show='countDown>0'
+                    class='counter'
+                    @click='stopClose'>自动关闭: {{countDown}}秒</span>
+                <span v-show='countDown<=0'
+                    class='counter'>请手动关闭</span>
+            </div>
+            <div class='page-content'
+                flex-box="1">
+                <encourager v-show='activeItem===ENCOURAGER'>
+                </encourager>
+                <common-API v-show='activeItem===COMMONAPI'></common-API>
+                <test v-show='activeItem===TEST'></test>
+            </div>
+            <div class='page-footer'
+                flex-box="0">
+                广告位
+            </div>
+        </div>
     </div>
 </template>
 <script>
@@ -28,13 +49,64 @@ export default {
             activeItem: 'encourager',
             ENCOURAGER: 'encourager',
             COMMONAPI: 'common-API',
-            TEST: 'test'
+            TEST: 'test',
+            // count down
+            Countdowner: undefined,
+            countDown: 0,
         };
     },
+    computed: {
+        pageTitle: function () {
+            let pageTitle = ''
+            switch (this.activeItem) {
+                case this.TEST:
+                    pageTitle = '测试页'
+                    break;
+                case this.ENCOURAGER:
+                    pageTitle = '鼓励'
+                    break;
+                case this.COMMONAPI:
+                    pageTitle = '常见API'
+                    break;
+                default:
+                    console.log('未知activeItem:' + this.activeItem)
+            }
+            return pageTitle;
+        }
+    },
+    created() {
+        this.countDown = this.getters('setting').config.timeLast
+        if (this.countDown > 0) {
+            this.Countdowner = setInterval(() => {
+                this.countDown--;
+                if (this.countDown <= 0) {
+                    this.invokeClose();
+                }
+            }, 1000)
+        }
+    },
     methods: {
+        stopClose() {
+            this.countDown = -1;
+            clearInterval(this.Countdowner)
+            console.log('终止自动关闭')
+            this.sendMessage(cmds.STOP_CLOSE)
+        },
+        invokeClose() {
+            console.log('关闭...')  // 无效发布消息 extension有计时自动关闭
+        },
         handleChange(e) {
             this.activeItem = e;
-        }
+        },
+        handRootClock() {
+            this.stopClose();
+            // 移除终止监听
+            this.$refs['root'].removeEventListener('click', this.handRootClock, true)
+        },
+    },
+    mounted() {
+        // 增加点击终止关闭监听
+        this.$refs['root'].addEventListener('click', this.handRootClock, true)
     },
 };
 </script>
@@ -84,7 +156,6 @@ body,
     padding-top: 15px;
     padding-bottom: 15px;
     z-index: 10;
-
     .item {
         margin-top: 3px;
         margin-bottom: 3px;
@@ -103,6 +174,19 @@ body,
             box-shadow: none;
             border: 1px dashed;
             color: inherit;
+        }
+    }
+}
+.page-container {
+    height: 100%;
+    .page-header {
+        .title {
+            font-size: 22px;
+            font-weight: bold;
+        }
+        .counter {
+            font-size: 12px;
+            margin-right: 10px;
         }
     }
 }

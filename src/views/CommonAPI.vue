@@ -1,6 +1,5 @@
 <template>
     <div id="common-api">
-        <h2>常见API</h2>
         <div v-for="(item,key,index) of Publink"
             :key="index"
             class="link-container">
