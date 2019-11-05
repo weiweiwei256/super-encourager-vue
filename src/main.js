@@ -9,6 +9,17 @@ import * as cmds from '@/store/cmd-constant.js'
 Vue.config.productionTip = false
 // 全局混入vuex快捷访问方法
 Vue.mixin({
+    data() {
+        return {
+            // 全局混入常量
+            // page:
+            ENCOURAGER: 'encourager',
+            COMMONAPI: 'common-API',
+            TOOLS: 'tools',
+            WEB_CONFIG: 'web-config',
+            TEST: 'test',
+        }
+    },
     methods: {
         dispatch: function(name, arg) {
             return store.dispatch(name, arg)
@@ -28,8 +39,9 @@ Vue.mixin({
     },
 })
 // 由于获取初始化 是异步返回 而很多页面高度依赖settings 所以初始化逻辑置于vue渲染之前
-store.dispatch(types.POST_MESSAGE, { cmdKey: cmds.INIT }).then(receivePkg => {
-    store.commit(types.SET_SETTING, receivePkg.result)
+store.dispatch(types.POST_MESSAGE, { cmdKey: cmds.INIT }).then(result => {
+    console.log(result)
+    store.commit(types.SET_SETTING, result)
     new Vue({
         store,
         render: h => h(App),

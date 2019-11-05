@@ -8,9 +8,14 @@ import {
     RadioGroup,
     Form,
     FormItem,
+    Input,
+    InputNumber,
+    ColorPicker,
     Select,
     Option,
     Message,
+    Tag,
+    Dialog,
 } from 'element-ui'
 Vue.use(Button)
 Vue.use(Link)
@@ -21,5 +26,10 @@ Vue.use(RadioButton)
 Vue.use(Form)
 Vue.use(FormItem)
 Vue.use(Select)
+Vue.use(Input)
+Vue.use(InputNumber)
+Vue.use(ColorPicker)
 Vue.use(Option)
+Vue.use(Tag)
+Vue.use(Dialog)
 Vue.prototype.$message = Message

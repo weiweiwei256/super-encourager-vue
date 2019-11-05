@@ -9,6 +9,8 @@
             <el-radio-button class="iconfont item"
                 :label='COMMONAPI'>&#xe64f;</el-radio-button>
             <el-radio-button class="iconfont item"
+                :label='TOOLS'>&#xe6da;</el-radio-button>
+            <el-radio-button class="iconfont item"
                 :label='WEB_CONFIG'> &#xe611;</el-radio-button>
         </el-radio-group>
     </div>
@@ -30,9 +32,6 @@ export default {
             isMoveNav: false,
             yOffset: 0,
             radioValue: this.defView,
-            ENCOURAGER: 'encourager',
-            COMMONAPI: 'common-API',
-            WEB_CONFIG: 'web-config'
         };
     },
     watch: {

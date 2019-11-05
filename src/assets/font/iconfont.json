@@ -13,6 +13,13 @@
       "unicode_decimal": 59153
     },
     {
+      "icon_id": "3679952",
+      "name": "娱乐",
+      "font_class": "yule",
+      "unicode": "e67a",
+      "unicode_decimal": 59002
+    },
+    {
       "icon_id": "5677220",
       "name": "礼物",
       "font_class": "liwu",
@@ -25,6 +32,13 @@
       "font_class": "api1",
       "unicode": "e64f",
       "unicode_decimal": 58959
+    },
+    {
+      "icon_id": "9171650",
+      "name": "工具",
+      "font_class": "gongju",
+      "unicode": "e6da",
+      "unicode_decimal": 59098
     },
     {
       "icon_id": "10262050",

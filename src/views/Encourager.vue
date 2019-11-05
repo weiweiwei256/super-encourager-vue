@@ -91,9 +91,9 @@ export default {
       })
     },
     async getImage() {
-      let { result } = await this.sendMessage(cmds.ENCOURAGER_IMAGE)
-      this.imageUrl = result.imageUrl;
-      this.isCollected = result.isCollected;
+      let { imageUrl, isCollected } = await this.sendMessage(cmds.ENCOURAGER_IMAGE)
+      this.imageUrl = imageUrl;
+      this.isCollected = isCollected;
     }
   },
   beforeDestroy() {

@@ -9,7 +9,7 @@ Vue.use(Vuex)
 window.addEventListener('message', event => {
     let { data } = event
     if (data.msgCode) {
-        bus.publish(data.msgCode, event.data)
+        bus.publish(data.msgCode, data.result)
     } else {
         console.error('未识别message' + JSON.stringify(event))
     }
@@ -51,8 +51,8 @@ const store = new Vuex.Store({
             return new Promise((resolve, reject) => {
                 // 通过唯一msgCode 来确保获取的消息就是发送的消息
                 let msgCode = utils.randomString(8)
-                let hander = info => {
-                    resolve(info)
+                let hander = result => {
+                    resolve(result)
                     bus.unsubscribe(msgCode) // 获取消息后直接释放
                 }
                 // TODO: 超时自动销毁逻辑 toast提示

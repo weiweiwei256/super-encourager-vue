@@ -21,6 +21,7 @@
                 </encourager>
                 <common-API v-show='activeItem===COMMONAPI'></common-API>
                 <web-config v-show='activeItem===WEB_CONFIG'></web-config>
+                <tools v-show='activeItem===TOOLS'></tools>
                 <test v-show='activeItem===TEST'></test>
             </div>
             <div class='page-footer'
@@ -33,10 +34,11 @@
 <script>
 import * as cmds from '@/store/cmd-constant.js';
 import * as types from '@/store/types.js'
-import ViewNav from '@/components/ViewNav.vue'
+import ViewNav from '@/views/ViewNav.vue'
 import CommonAPI from '@/views/CommonAPI.vue'
 import Encourager from '@/views/Encourager.vue'
 import WebConfig from '@/views/WebConfig.vue'
+import Tools from '@/views/Tools.vue'
 import Test from '@/test/Test.vue'
 export default {
     components: {
@@ -44,16 +46,13 @@ export default {
         CommonAPI,
         Encourager,
         WebConfig,
+        Tools,
         Test
     },
     data() {
         return {
             // TEST:
-            activeItem: 'encourager',
-            ENCOURAGER: 'encourager',
-            COMMONAPI: 'common-API',
-            WEB_CONFIG: 'web-config',
-            TEST: 'test',
+            activeItem: 'tools', // 需是全局全局page常量
             // count down
             Countdowner: undefined,
             countDown: 0,
@@ -71,6 +70,9 @@ export default {
                     break;
                 case this.COMMONAPI:
                     pageTitle = '常见API'
+                    break;
+                case this.TOOLS:
+                    pageTitle = '工具'
                     break;
                 default:
                     console.log('未知activeItem:' + this.activeItem)
@@ -131,6 +133,21 @@ body,
         color: inherit;
     }
     /deep/ .el-checkbox {
+        color: inherit;
+    }
+    /deep/ .el-tag {
+        border-color: inherit;
+        color: inherit;
+        background-color: transparent;
+    }
+    /deep/ .el-radio-button__inner {
+        background-color: inherit;
+        border-color: inherit;
+        color: inherit;
+    }
+    /deep/ .el-radio-button__orig-radio:checked + .el-radio-button__inner {
+        box-shadow: none;
+        border: 1px dashed;
         color: inherit;
     }
 }

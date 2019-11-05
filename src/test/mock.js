@@ -24,6 +24,9 @@ const mock = {
                 timeLast: 10,
                 type: 'natural-hour',
             },
+            extra: {
+                rootPath: 'rootPath',
+            },
             globalState: {
                 encourager: { hitokoto_type: 'c' },
             },
@@ -52,6 +55,11 @@ const mock = {
         console.log(value)
         return {
             msg: '更新webconfig',
+        }
+    },
+    [cmds.SAVE_FILE]: ({ fileName }) => {
+        return {
+            msg: `保存文件${fileName}成功`,
         }
     },
 }
