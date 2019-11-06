@@ -5,13 +5,21 @@
             <el-radio-group v-model="activeTools">
                 <el-radio-button :label='QR_CODE'>生成二维码</el-radio-button>
                 <el-radio-button :label="DATE_TRANSFORM">日期<=>时间戳</el-radio-button>
-                <el-radio-button label="广州"></el-radio-button>
+                <el-radio-button :label="STRING_RELATED">字符串相关</el-radio-button>
                 <el-radio-button label="深圳"></el-radio-button>
             </el-radio-group>
         </div>
         <div class='tool-container'>
-            <QRcode v-show='activeTools===QR_CODE'></QRcode>
-            <DateTransform v-show='activeTools===DATE_TRANSFORM'></DateTransform>
+            <div class='introduction'
+                v-if='!activeTools'>
+                <p>当前版本提供的工具还很有限,RUNNERUP会根据大家的实际需要,逐步追加.</p>
+                <p>快来为你想要的工具点赞,或者反馈你想要的工具吧.</p>
+                <span>地址</span>
+                <el-link href='https://github.com/weiweiwei256/super-encourager'>github super-encourager advice issue</el-link>
+            </div>
+            <QRcode v-if='activeTools===QR_CODE'></QRcode>
+            <DateTransform v-if='activeTools===DATE_TRANSFORM'></DateTransform>
+            <StringRelated v-if='activeTools===STRING_RELATED'></StringRelated>
         </div>
     </div>
 </template>
@@ -19,18 +27,21 @@
 import * as cmds from '@/store/cmd-constant.js';
 import QRcode from '@/substance/tools/QRcode.vue'
 import DateTransform from '@/substance/tools/DateTransform.vue'
+import StringRelated from '@/substance/tools/StringRelated.vue'
 export default {
   name: 'tools',
   components: {
     QRcode,
-    DateTransform
+    DateTransform,
+    StringRelated
   },
   data() {
     return {
       webConfig: {},
-      activeTools: 'qrcode',
+      activeTools: 'string_related',
       QR_CODE: 'qrcode',
-      DATE_TRANSFORM: 'date_transform'
+      DATE_TRANSFORM: 'date_transform',
+      STRING_RELATED: 'string_related'
     }
   },
   created() {
@@ -59,6 +70,9 @@ export default {
         margin-top: 20px;
         margin-left: 20px;
         margin-right: 20px;
+        .introduction {
+            text-align: center;
+        }
     }
 }
 </style>

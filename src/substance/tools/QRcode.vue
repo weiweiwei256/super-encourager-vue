@@ -1,17 +1,6 @@
 <template>
     <div id='qrcode'>
         <div flex='box:last'>
-            <div class='show'
-                flex='main:center cross:center'>
-                <vue-qr :text="properties.text"
-                    ref='vue-qr'
-                    :size='properties.size'
-                    :dotScale='1'
-                    :margin='properties.margin'
-                    :colorDark='properties.colorDark'
-                    :colorLight='properties.colorLight'
-                    :correctLevel='properties.correctLevel'></vue-qr>
-            </div>
             <div class='property'>
                 <el-form ref="form"
                     :model="properties"
@@ -52,6 +41,17 @@
                     </el-form-item>
 
                 </el-form>
+            </div>
+            <div class='show'
+                flex='main:center cross:center'>
+                <vue-qr :text="properties.text"
+                    ref='vue-qr'
+                    :size='properties.size'
+                    :dotScale='1'
+                    :margin='properties.margin'
+                    :colorDark='properties.colorDark'
+                    :colorLight='properties.colorLight'
+                    :correctLevel='properties.correctLevel'></vue-qr>
             </div>
         </div>
         <div class='footer'>

@@ -30,6 +30,7 @@ export default {
     text-align: center;
     .icon {
         text-align: center;
+        font-size: 16px;
     }
 }
 </style>
