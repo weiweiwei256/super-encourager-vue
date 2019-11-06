@@ -6,6 +6,13 @@
   "description": "超级鼓励师图标库",
   "glyphs": [
     {
+      "icon_id": "847623",
+      "name": "双向",
+      "font_class": "shuangxiang",
+      "unicode": "e625",
+      "unicode_decimal": 58917
+    },
+    {
       "icon_id": "1898479",
       "name": "刷新",
       "font_class": "shuaxin1",

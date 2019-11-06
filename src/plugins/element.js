@@ -16,6 +16,7 @@ import {
     Message,
     Tag,
     Dialog,
+    DatePicker,
 } from 'element-ui'
 Vue.use(Button)
 Vue.use(Link)
@@ -32,4 +33,5 @@ Vue.use(ColorPicker)
 Vue.use(Option)
 Vue.use(Tag)
 Vue.use(Dialog)
+Vue.use(DatePicker)
 Vue.prototype.$message = Message
