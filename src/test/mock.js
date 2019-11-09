@@ -62,5 +62,12 @@ const mock = {
             msg: `保存文件${fileName}成功`,
         }
     },
+    [cmds.CALL_ENTERAINMENT]: ({ type, name }) => {
+        console.log(type)
+        console.log(name)
+        return {
+            msg: '调用娱乐成功',
+        }
+    },
 }
 export default mock

@@ -18,12 +18,10 @@
 </template>
 
 <script>
-import { Divider } from 'element-ui'
 
 export default {
     name: 'Encourager',
     components: {
-        ElDivider: Divider,
     },
     props: {
         title: {

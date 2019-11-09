@@ -5,8 +5,8 @@
             <el-radio-group v-model="activeTools">
                 <el-radio-button :label='QR_CODE'>生成二维码</el-radio-button>
                 <el-radio-button :label="DATE_TRANSFORM">日期<=>时间戳</el-radio-button>
-                <el-radio-button :label="STRING_RELATED">字符串相关</el-radio-button>
-                <el-radio-button label="深圳"></el-radio-button>
+                <el-radio-button :label="STRING_RELATED">字符串处理</el-radio-button>
+                <el-radio-button :label="CALCULATOR">计算器</el-radio-button>
             </el-radio-group>
         </div>
         <div class='tool-container'>
@@ -20,6 +20,7 @@
             <QRcode v-if='activeTools===QR_CODE'></QRcode>
             <DateTransform v-if='activeTools===DATE_TRANSFORM'></DateTransform>
             <StringRelated v-if='activeTools===STRING_RELATED'></StringRelated>
+            <calculator v-if='activeTools===CALCULATOR'></calculator>
         </div>
     </div>
 </template>
@@ -28,20 +29,23 @@ import * as cmds from '@/store/cmd-constant.js';
 import QRcode from '@/substance/tools/QRcode.vue'
 import DateTransform from '@/substance/tools/DateTransform.vue'
 import StringRelated from '@/substance/tools/StringRelated.vue'
+import Calculator from '@/substance/tools/Calculator.vue'
 export default {
   name: 'tools',
   components: {
     QRcode,
     DateTransform,
-    StringRelated
+    StringRelated,
+    Calculator
   },
   data() {
     return {
       webConfig: {},
-      activeTools: 'string_related',
       QR_CODE: 'qrcode',
       DATE_TRANSFORM: 'date_transform',
-      STRING_RELATED: 'string_related'
+      STRING_RELATED: 'string_related',
+      CALCULATOR: 'calculator',
+      activeTools: 'calculator',  // 需要与产量保持一致
     }
   },
   created() {

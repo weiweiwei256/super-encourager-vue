@@ -22,6 +22,7 @@
                 <common-API v-show='activeItem===COMMONAPI'></common-API>
                 <web-config v-show='activeItem===WEB_CONFIG'></web-config>
                 <tools v-show='activeItem===TOOLS'></tools>
+                <entertainment v-show='activeItem===ENTERTAINMENT'></entertainment>
                 <test v-show='activeItem===TEST'></test>
             </div>
             <div class='page-footer'
@@ -39,6 +40,7 @@ import CommonAPI from '@/views/CommonAPI.vue'
 import Encourager from '@/views/Encourager.vue'
 import WebConfig from '@/views/WebConfig.vue'
 import Tools from '@/views/Tools.vue'
+import Entertainment from '@/views/Entertainment.vue'
 import Test from '@/test/Test.vue'
 export default {
     components: {
@@ -47,6 +49,7 @@ export default {
         Encourager,
         WebConfig,
         Tools,
+        Entertainment,
         Test
     },
     data() {
@@ -72,7 +75,10 @@ export default {
                     pageTitle = '常见API'
                     break;
                 case this.TOOLS:
-                    pageTitle = '工具'
+                    pageTitle = '常见工具'
+                    break;
+                 case this.ENTERTAINMENT:
+                    pageTitle = '娱乐放松'
                     break;
                 default:
                     console.log('未知activeItem:' + this.activeItem)

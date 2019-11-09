@@ -16,6 +16,7 @@ Vue.mixin({
             ENCOURAGER: 'encourager',
             COMMONAPI: 'common-API',
             TOOLS: 'tools',
+            ENTERTAINMENT: 'entertainment',
             WEB_CONFIG: 'web-config',
             TEST: 'test',
         }

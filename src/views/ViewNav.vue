@@ -11,6 +11,9 @@
             <el-radio-button class="iconfont item"
                 :label='TOOLS'>&#xe6da;</el-radio-button>
             <el-radio-button class="iconfont item"
+                :label='ENTERTAINMENT'>&#xe67a;
+            </el-radio-button>
+            <el-radio-button class="iconfont item"
                 :label='WEB_CONFIG'> &#xe611;</el-radio-button>
         </el-radio-group>
     </div>
