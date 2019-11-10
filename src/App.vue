@@ -17,19 +17,38 @@
             </div>
             <div class='page-content'
                 flex-box="1">
-                <encourager v-show='activeItem===ENCOURAGER'>
+                <encourager v-if='activeItem===ENCOURAGER'>
                 </encourager>
-                <common-API v-show='activeItem===COMMONAPI'></common-API>
-                <web-config v-show='activeItem===WEB_CONFIG'></web-config>
-                <tools v-show='activeItem===TOOLS'></tools>
-                <entertainment v-show='activeItem===ENTERTAINMENT'></entertainment>
-                <test v-show='activeItem===TEST'></test>
+                <common-API v-if='activeItem===COMMONAPI'></common-API>
+                <web-config v-if='activeItem===WEB_CONFIG'></web-config>
+                <tools v-if='activeItem===TOOLS'></tools>
+                <entertainment v-if='activeItem===ENTERTAINMENT'></entertainment>
+                <test v-if='activeItem===TEST'></test>
             </div>
             <div class='page-footer'
                 flex-box="0">
-                广告位
+                <el-link @click.stop='showAd=true'>内推</el-link>
             </div>
         </div>
+        <el-drawer title="伴鱼内推"
+            :visible.sync="showAd"
+            :size='60'
+            direction="btt">
+            <p>RUNNERUP所在的伴鱼内推:前端，后端，客户端，产品，运营等等岗位 工作地点:北京 可年后入职</p>
+            <p style='font-size: 15px;'>公司简介:<br>
+                北京读我科技有限公司(伴鱼)刚刚完成C轮融资，公司的各个方面都处于快速发展阶段。成立至今已经4年，目前伴鱼拥有超过1W优质外教，1200W注册用户，20W付费学员。成功打造伴鱼少儿英语，伴鱼绘本，伴鱼英语等一系列非常受欢迎的教育产品。</p>
+            <p style='font-size: 15px;'>自评:本人负责伴鱼少儿英语学生端，老师端以及增长等相关业务开发(H5+小程序)。19年3月入职。
+                <ul>
+                    <li>公司薪资水平很不错，本人就涨了不少。</li>
+                    <li>工作是有一定压力和强度的，公司正处于快速发展阶段。所以混日子养老或没啥本事爱玩权谋的就自觉退让吧。这里不会有狼性的洗脑，但也是某种意义上的战场。</li>
+                    <li>这里会不断接近你能力上限，挖掘你的潜力，让你能完成质变的成长。本人就成长了很多。例如这次鼓励师的更新，在没耽误正常工作的情况下，前前后后2周左右完成。这放到以前基本没可能。现在感觉自己可以做很多很多的事。都开始膨胀了：P</li>
+                    <li>再说说福利，六险一金，住房公积金按最高标准，住的近有租房补助，远的有打车补助，电脑补助，下午茶。过个节还要搞点事情（程序员节我抽了个大恐龙：p）</li>
+                    <li>技术氛围浓厚。vue和react我们都有深度使用和丰富的经验积累。而且公司很关注大家的技术成长，部门间，部门内技术交流是每周日常。我们比较关注前沿技术和最新动态：最新的chrome更新，最新的ES10内容，大厂的技术方向都是我们的议题 。具体技术我就罗列点关键字：gitlab，ci，cd，sentry，yapi，jenkins，confluence，jira，jumpserver，kibana...你自己了解下。</li>
+                </ul>
+                其他想要了解的也可以邮件交流 简历内推email：
+                <a href="mailto:super_encourager@163.com?subject=伴鱼内推&body=祝好；">super_encourager@163.com</a>
+                我每天都会处理并及时答复</p>
+        </el-drawer>
     </div>
 </template>
 <script>
@@ -54,8 +73,9 @@ export default {
     },
     data() {
         return {
+            showAd: false,
             // TEST:
-            activeItem: 'tools', // 需是全局全局page常量
+            activeItem: 'encourager', // 需是全局全局page常量
             // count down
             Countdowner: undefined,
             countDown: 0,
@@ -77,8 +97,11 @@ export default {
                 case this.TOOLS:
                     pageTitle = '常见工具'
                     break;
-                 case this.ENTERTAINMENT:
+                case this.ENTERTAINMENT:
                     pageTitle = '娱乐放松'
+                    break;
+                case this.WEB_CONFIG:
+                    pageTitle = '设置'
                     break;
                 default:
                     console.log('未知activeItem:' + this.activeItem)
@@ -137,6 +160,7 @@ body,
     // 全局修改element-ui样式
     /deep/ .el-link.el-link--default {
         color: inherit;
+        text-decoration: underline;
     }
     /deep/ .el-checkbox {
         color: inherit;
@@ -218,6 +242,10 @@ body,
             font-size: 12px;
             margin-right: 10px;
         }
+    }
+    .page-footer {
+        text-align: center;
+        color: #409eff;
     }
 }
 </style>

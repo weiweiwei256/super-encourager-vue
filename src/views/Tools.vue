@@ -13,9 +13,9 @@
             <div class='introduction'
                 v-if='!activeTools'>
                 <p>当前版本提供的工具还很有限,RUNNERUP会根据大家的实际需要,逐步追加.</p>
-                <p>快来为你想要的工具点赞,或者反馈你想要的工具吧.</p>
+                <p>快来反馈你想要的工具或为你想要的工具点赞吧.</p>
                 <span>地址</span>
-                <el-link href='https://github.com/weiweiwei256/super-encourager'>github super-encourager advice issue</el-link>
+                <el-link href='https://github.com/weiweiwei256/super-encourager/issues/5'>github issue 下一版计划集成的工具</el-link>
             </div>
             <QRcode v-if='activeTools===QR_CODE'></QRcode>
             <DateTransform v-if='activeTools===DATE_TRANSFORM'></DateTransform>
@@ -45,7 +45,7 @@ export default {
       DATE_TRANSFORM: 'date_transform',
       STRING_RELATED: 'string_related',
       CALCULATOR: 'calculator',
-      activeTools: 'calculator',  // 需要与产量保持一致
+      activeTools: '',  // 需要与常量保持一致
     }
   },
   created() {

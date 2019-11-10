@@ -105,7 +105,7 @@
             "url": "https://www.runoob.com/linux/linux-command-manual.html"
         }
     ],
-    "推荐": [
+    "chrome插件推荐": [
         {
             "name": "vimium",
             "url": "https://www.jianshu.com/p/f803bbba0ba5",
@@ -120,6 +120,23 @@
             "name": "SwitchyOmega",
             "url": "https://proxy-switchyomega.com/",
             "desc": "快速配置chrome的代理模式,活用规则快速切换本地代码使用的测试/线上服务"
+        }
+    ],
+    "vscode插件推荐": [
+        {
+            "name": "Copy Copy Paste",
+            "url": "https://github.com/rockingskier/vscode-copy-copy-paste",
+            "desc": "记录你的复制,随时选择粘贴"
+        },
+        {
+            "name": "LeetCode",
+            "url": "https://github.com/jdneo/vscode-leetcode",
+            "desc": "用自己调教好的vscode刷题更自在"
+        },
+        {
+            "name": "Todo+",
+            "url": "https://github.com/fabiospampinato/vscode-todo-plus",
+            "desc": "编码计划两不误"
         }
     ]
 }

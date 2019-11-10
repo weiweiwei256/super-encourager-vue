@@ -18,6 +18,7 @@ import {
     Dialog,
     DatePicker,
     Divider,
+    Drawer,
 } from 'element-ui'
 Vue.use(Button)
 Vue.use(Link)
@@ -36,4 +37,5 @@ Vue.use(Tag)
 Vue.use(Dialog)
 Vue.use(DatePicker)
 Vue.use(Divider)
+Vue.use(Drawer)
 Vue.prototype.$message = Message

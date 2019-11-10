@@ -1,11 +1,13 @@
 <template>
     <div id='calculator'>
-        <el-button @click="changeModeEvent"
-            round
-            class='mode-btn'
-            size='mini'>
-            {{isNormalMode?"切换至高级模式":"切换至常规模式"}}</p>
-        </el-button>
+        <div style='text-align:center'>
+            <el-button @click="changeModeEvent"
+                round
+                class='mode-btn'
+                size='mini'>
+                {{isNormalMode?"切换至高级模式":"切换至常规模式"}}</p>
+            </el-button>
+        </div>
         <input class="result"
             v-model="current" />
         <div class="container"
@@ -248,7 +250,6 @@ export default {
 #calculator {
     .mode-btn {
         height: 27px;
-        margin-left: 45px;
         margin-bottom: 11px;
     }
     .result {
