@@ -43,9 +43,9 @@
                     <li>工作是有一定压力和强度的，公司正处于快速发展阶段。所以混日子养老或没啥本事爱玩权谋的就自觉退让吧。这里不会有狼性的洗脑，但也是某种意义上的战场。</li>
                     <li>这里会不断接近你能力上限，挖掘你的潜力，让你能完成质变的成长。本人就成长了很多。例如这次鼓励师的更新，在没耽误正常工作的情况下，前前后后2周左右完成。这放到以前基本没可能。现在感觉自己可以做很多很多的事。都开始膨胀了：P</li>
                     <li>再说说福利，六险一金，住房公积金按最高标准，住的近有租房补助，远的有打车补助，电脑补助，下午茶。过个节还要搞点事情（程序员节我抽了个大恐龙：p）</li>
-                    <li>技术氛围浓厚。vue和react我们都有深度使用和丰富的经验积累。而且公司很关注大家的技术成长，部门间，部门内技术交流是每周日常。我们比较关注前沿技术和最新动态：最新的chrome更新，最新的ES10内容，大厂的技术方向都是我们的议题 。具体技术我就罗列点关键字：gitlab，ci，cd，sentry，yapi，jenkins，confluence，jira，jumpserver，kibana...你自己了解下。</li>
+                    <li>技术氛围浓厚。vue和react我们都有深度使用和丰富的经验积累。而且公司很关注大家的技术成长，部门间，部门内技术交流是每周日常。另外我们比较关注前沿技术和最新动态：最新的chrome更新，最新的ES10内容，大厂的技术方向都是我们的议题 。技术我就罗列点关键字：gitlab，ci，cd，sentry，yapi，jenkins，confluence，jira，jumpserver，kibana...你自己了解下。</li>
                 </ul>
-                其他想要了解的也可以邮件交流 简历内推email：
+                其他想要了解的也可以邮件交流 简历内推email：(点击即可编辑邮件)
                 <a href="mailto:super_encourager@163.com?subject=伴鱼内推&body=祝好；">super_encourager@163.com</a>
                 我每天都会处理并及时答复</p>
         </el-drawer>
@@ -162,8 +162,14 @@ body,
         color: inherit;
         text-decoration: underline;
     }
-    /deep/ .el-checkbox {
+    /deep/ .el-form-item__label,
+    .el-checkbox {
         color: inherit;
+    }
+    /deep/ .el-drawer__header,
+    .el-drawer {
+        color: inherit;
+        background-color: inherit;
     }
     /deep/ .el-tag {
         border-color: inherit;
