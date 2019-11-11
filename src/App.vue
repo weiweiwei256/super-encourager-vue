@@ -27,7 +27,7 @@
             </div>
             <div class='page-footer'
                 flex-box="0">
-                <el-link @click.stop='showAd=true'>内推</el-link>
+                <el-link @click.stop='showAd=true' style='font-size:20px'>内推</el-link>
             </div>
         </div>
         <el-drawer title="伴鱼内推"

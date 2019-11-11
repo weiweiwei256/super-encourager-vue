@@ -17,7 +17,6 @@
             <el-button @click.stop="invoke('daze','solar-animation')">太阳系</el-button>
             <el-button @click.stop="invoke('daze','3d-pixel-graph')">炫酷3D粒子</el-button>
             <el-button @click.stop="invoke('daze','firestorm')">火焰风暴</el-button>
-            <el-button @click.stop="invoke('daze','green-particle')">绿色魔幻</el-button>
         </div>
     </div>
 </template>
