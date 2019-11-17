@@ -27,6 +27,13 @@
       "unicode_decimal": 59002
     },
     {
+      "icon_id": "5291408",
+      "name": "about",
+      "font_class": "about",
+      "unicode": "e606",
+      "unicode_decimal": 58886
+    },
+    {
       "icon_id": "5677220",
       "name": "礼物",
       "font_class": "liwu",

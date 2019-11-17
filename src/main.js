@@ -14,10 +14,12 @@ Vue.mixin({
             // 全局混入常量
             // page:
             ENCOURAGER: 'encourager',
+            ENTERTAINMENT: 'entertainment',
             COMMONAPI: 'common-API',
             TOOLS: 'tools',
-            ENTERTAINMENT: 'entertainment',
             WEB_CONFIG: 'web-config',
+            ABOUT:'about',
+
             TEST: 'test',
         }
     },

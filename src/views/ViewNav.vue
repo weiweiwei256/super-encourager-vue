@@ -15,6 +15,8 @@
                 :label='TOOLS'>&#xe6da;</el-radio-button>
             <el-radio-button class="iconfont item"
                 :label='WEB_CONFIG'> &#xe611;</el-radio-button>
+            <el-radio-button class="iconfont item"
+                :label='ABOUT'> &#xe606;</el-radio-button>
         </el-radio-group>
     </div>
 </template>

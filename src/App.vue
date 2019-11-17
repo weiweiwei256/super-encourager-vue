@@ -23,11 +23,13 @@
                 <web-config v-if='activeItem===WEB_CONFIG'></web-config>
                 <tools v-if='activeItem===TOOLS'></tools>
                 <entertainment v-if='activeItem===ENTERTAINMENT'></entertainment>
+                <about v-if='activeItem===ABOUT'></about>
                 <test v-if='activeItem===TEST'></test>
             </div>
             <div class='page-footer'
                 flex-box="0">
-                <el-link @click.stop='showAd=true' style='font-size:20px'>内推</el-link>
+                <el-link @click.stop='showAd=true'
+                    style='font-size:20px'>内推</el-link>
             </div>
         </div>
         <el-drawer title="伴鱼内推"
@@ -60,6 +62,7 @@ import Encourager from '@/views/Encourager.vue'
 import WebConfig from '@/views/WebConfig.vue'
 import Tools from '@/views/Tools.vue'
 import Entertainment from '@/views/Entertainment.vue'
+import About from '@/views/About.vue'
 import Test from '@/test/Test.vue'
 export default {
     components: {
@@ -69,6 +72,7 @@ export default {
         WebConfig,
         Tools,
         Entertainment,
+        About,
         Test
     },
     data() {
@@ -102,6 +106,9 @@ export default {
                     break;
                 case this.WEB_CONFIG:
                     pageTitle = '设置'
+                    break;
+                case this.ABOUT:
+                    pageTitle = '关于'
                     break;
                 default:
                     console.log('未知activeItem:' + this.activeItem)
@@ -188,16 +195,16 @@ body,
     }
 }
 @font-face {
-    font-family: 'iconfont';
-    src: url('./assets/font/iconfont.eot');
-    src: url('./assets/font/iconfont.eot?#iefix') format('embedded-opentype'),
-        url('./assets/font/iconfont.woff2') format('woff2'),
-        url('./assets/font/iconfont.woff') format('woff'),
-        url('./assets/font/iconfont.ttf') format('truetype'),
-        url('./assets/font/iconfont.svg#iconfont') format('svg');
+    font-family: "iconfont";
+    src: url("./assets/font/iconfont.eot");
+    src: url("./assets/font/iconfont.eot?#iefix") format("embedded-opentype"),
+        url("./assets/font/iconfont.woff2") format("woff2"),
+        url("./assets/font/iconfont.woff") format("woff"),
+        url("./assets/font/iconfont.ttf") format("truetype"),
+        url("./assets/font/iconfont.svg#iconfont") format("svg");
 }
 .iconfont {
-    font-family: 'iconfont' !important;
+    font-family: "iconfont" !important;
     font-style: normal;
     font-size: 22px;
     -webkit-font-smoothing: antialiased;
@@ -248,6 +255,9 @@ body,
             font-size: 12px;
             margin-right: 10px;
         }
+    }
+    .page-content {
+        margin-left: 40px;
     }
     .page-footer {
         text-align: center;
