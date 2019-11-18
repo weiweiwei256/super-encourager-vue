@@ -1,0 +1,54 @@
+html,
+body,
+#app,
+#root {
+    height: 100%;
+    margin: 0;
+    color: auto;
+    background: auto;
+    // 全局修改element-ui样式
+    /deep/ .el-link.el-link--default {
+        color: inherit;
+        text-decoration: underline;
+    }
+    /deep/ .el-form-item__label,
+    .el-checkbox {
+        color: inherit;
+    }
+    /deep/ .el-drawer__header,
+    .el-drawer {
+        color: inherit;
+        background-color: inherit;
+    }
+    /deep/ .el-tag {
+        border-color: inherit;
+        color: inherit;
+        background-color: transparent;
+    }
+    /deep/ .el-radio-button__inner {
+        background-color: inherit;
+        border-color: inherit;
+        color: inherit;
+    }
+    /deep/ .el-radio-button__orig-radio:checked + .el-radio-button__inner {
+        box-shadow: none;
+        border: 1px dashed;
+        color: inherit;
+    }
+}
+@font-face {
+    font-family: "iconfont";
+    src: url("./assets/font/iconfont.eot");
+    src: url("./assets/font/iconfont.eot?#iefix") format("embedded-opentype"),
+        url("./assets/font/iconfont.woff2") format("woff2"),
+        url("./assets/font/iconfont.woff") format("woff"),
+        url("./assets/font/iconfont.ttf") format("truetype"),
+        url("./assets/font/iconfont.svg#iconfont") format("svg");
+}
+.iconfont {
+    font-family: "iconfont" !important;
+    font-style: normal;
+    font-size: 22px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}

@@ -6,6 +6,7 @@ import './plugins/element.js'
 import store from './store/store.js'
 import * as types from '@/store/types.js'
 import * as cmds from '@/store/cmd-constant.js'
+import driver from './global/driver.js'
 Vue.config.productionTip = false
 // 全局混入vuex快捷访问方法
 Vue.mixin({
@@ -18,7 +19,7 @@ Vue.mixin({
             COMMONAPI: 'common-API',
             TOOLS: 'tools',
             WEB_CONFIG: 'web-config',
-            ABOUT:'about',
+            ABOUT: 'about',
 
             TEST: 'test',
         }
@@ -49,4 +50,7 @@ store.dispatch(types.POST_MESSAGE, { cmdKey: cmds.INIT }).then(result => {
         store,
         render: h => h(App),
     }).$mount('#app')
+    if (result.extra.driver) {
+        driver.start()
+    }
 })

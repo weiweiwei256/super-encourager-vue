@@ -26,6 +26,7 @@ const mock = {
             },
             extra: {
                 rootPath: 'rootPath',
+                driver: false,
             },
             globalState: {
                 encourager: { hitokoto_type: 'c' },
