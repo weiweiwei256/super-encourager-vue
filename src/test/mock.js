@@ -16,13 +16,13 @@ const mock = {
         console.log('发送设置!')
         return {
             config: {
-                isGif: false,
-                keyword: '迪丽热巴',
-                maxImageNum: 5,
-                needTip: false,
-                timeInterval: 30,
-                timeLast: 10,
+                keyword: '石原里美 绿色森林 新垣结衣 ⭐我的最爱',
                 type: 'natural-hour',
+                timeLast: 10,
+                timeInterval: 30,
+                needTip: false,
+                maxImageNum: 5,
+                isGif: false,
             },
             extra: {
                 rootPath: 'rootPath',
