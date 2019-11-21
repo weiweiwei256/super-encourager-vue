@@ -4,18 +4,24 @@
         @mouseover='handleOver'>
         <el-radio-group v-model="radioValue">
             <el-radio-button class="iconfont item"
+                id='to-encourager'
                 :label='ENCOURAGER'>&#xe614;
             </el-radio-button>
             <el-radio-button class="iconfont item"
+                id='to-entertainment'
                 :label='ENTERTAINMENT'>&#xe67a;
             </el-radio-button>
             <el-radio-button class="iconfont item"
+                id='to-common-api'
                 :label='COMMONAPI'>&#xe64f;</el-radio-button>
             <el-radio-button class="iconfont item"
+                id='to-tools'
                 :label='TOOLS'>&#xe6da;</el-radio-button>
             <el-radio-button class="iconfont item"
+                id='to-setting'
                 :label='WEB_CONFIG'> &#xe611;</el-radio-button>
-            <el-radio-button class="iconfont item"  id='to-about'
+            <el-radio-button class="iconfont item"
+                id='to-about'
                 :label='ABOUT'> &#xe606;</el-radio-button>
         </el-radio-group>
     </div>

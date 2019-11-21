@@ -50,10 +50,6 @@ const mock = {
         msg: '关闭前数据',
     },
     [cmds.UPDATE_WEB_CONFIG]: arg => {
-        let { page, key, value } = arg
-        console.log(page)
-        console.log(key)
-        console.log(value)
         return {
             msg: '更新webconfig',
         }

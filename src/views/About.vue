@@ -1,21 +1,12 @@
 <template>
     <div id='about'>
         <h3>关于超级鼓励师:(super encourager)</h3>
-        <p>超级鼓励师是一款基于vue的vscode插件,旨在在"足不出户"的情况下为努力工作的程序员提供良好的周边服务.</p>
-        <p>功能涉及:娱乐放松,工作辅助等方面</p>
-        <h4>娱乐放松功能:</h4>
-        <h5>鼓励页:</h5>
-        <p>一言鼓励(随机获取一句话):该句话所属种类和由用户指定</p>
-        <p>美图鼓励: 根据用户指定的关键字从百度获取高清图片并随机显示. 用户可以同时指定多个关键字.</p>
-        <h5>娱乐页:</h5>
-        <p>游戏类(高交互性需要鼠标或者键盘完成操作): 有推箱子,过马路, 翻卡片三种游戏. 通过简单的游戏达到放松的目的</p>
-        <p>发泄类(具有一定的交互性以鼠标为主): 通过鼠标控制完成撕扯,破坏等效果 以达到放松减压的目的</p>
-        <p>发呆类(弱交互偶尔需要鼠标控制): 通过炫丽的效果吸引你的注意力,将你从烦躁中抽离,放空大脑,缓解压力.</p>
-        <h4>工作辅助功能:</h4>
-        <h5>常见API:根据不同维度提供各种常用的API地址</h5>
-        <p>目前包括:MDN,前端模块,Node模块,手册,chrome插件推荐,vscode插件推荐等分类</p>
-        <h5>工具页:提供工作编程过程中常用的工具</h5>
-        <p>目前包括:二维码生成,日期&时间戳装换,字符串处理,计算器</p>
+        <p>超级鼓励师是vscode扩展，旨在在"足不出户"的情况下为努力工作的程序员提供良好的周边服务。功能涉及:娱乐放松，工作辅助等方面。希望能为努力工作的您带来鼓励和帮助!</p>
+        扩展源码地址：<el-link href='https://github.com/weiweiwei256/super-encourager'>https://github.com/weiweiwei256/super-encourager</el-link>
+        <p>鼓励师的web view panel渲染是基于vue框架的构建结果。该工程已完成扩展node端与vue前端的通信封装，扩展node端模拟，封装构建部署命令，可以快捷切换前端模拟开发和扩展端真实使用，极大的提升viewPanel的展现能力和研发速度。</p>
+        渲染工程源码地址：<el-link href='https://github.com/weiweiwei256/super-encourager-vue'>https://github.com/weiweiwei256/super-encourager-vue</el-link>
+        
+
     </div>
 </template>
 

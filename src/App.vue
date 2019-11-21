@@ -130,6 +130,7 @@ export default {
                 this.countDown--;
                 if (this.countDown <= 0) {
                     this.invokeClose();
+                    this.stopClose();
                 }
             }, 1000)
         }

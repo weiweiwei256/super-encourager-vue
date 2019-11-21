@@ -12,10 +12,7 @@
         <div class='tool-container'>
             <div class='introduction'
                 v-if='!activeTools'>
-                <p>当前版本提供的工具还很有限,RUNNERUP会根据大家的实际需要,逐步追加.</p>
-                <p>快来反馈你想要的工具或为你想要的工具点赞吧.</p>
-                <span>地址</span>
-                <el-link href='https://github.com/weiweiwei256/super-encourager/issues/5'>github issue 下一版计划集成的工具</el-link>
+                <el-link href='https://github.com/weiweiwei256/super-encourager/issues/5'>说说你还想要啥工具</el-link>
             </div>
             <QRcode v-if='activeTools===QR_CODE'></QRcode>
             <DateTransform v-if='activeTools===DATE_TRANSFORM'></DateTransform>
@@ -31,31 +28,31 @@ import DateTransform from '@/substance/tools/DateTransform.vue'
 import StringRelated from '@/substance/tools/StringRelated.vue'
 import Calculator from '@/substance/tools/Calculator.vue'
 export default {
-  name: 'tools',
-  components: {
-    QRcode,
-    DateTransform,
-    StringRelated,
-    Calculator
-  },
-  data() {
-    return {
-      webConfig: {},
-      QR_CODE: 'qrcode',
-      DATE_TRANSFORM: 'date_transform',
-      STRING_RELATED: 'string_related',
-      CALCULATOR: 'calculator',
-      activeTools: '',  // 需要与常量保持一致
+    name: 'tools',
+    components: {
+        QRcode,
+        DateTransform,
+        StringRelated,
+        Calculator
+    },
+    data() {
+        return {
+            webConfig: {},
+            QR_CODE: 'qrcode',
+            DATE_TRANSFORM: 'date_transform',
+            STRING_RELATED: 'string_related',
+            CALCULATOR: 'calculator',
+            activeTools: '',  // 需要与常量保持一致
+        }
+    },
+    created() {
+        this.webConfig = this.getters('setting').globalState
+    },
+    methods: {
+        changeHiType() {
+            this.sendMessage(cmds.UPDATE_WEB_CONFIG, { page: 'encourager', key: 'hitokoto_type', value: this.webConfig.hitokoto_type })
+        }
     }
-  },
-  created() {
-    this.webConfig = this.getters('setting').globalState
-  },
-  methods: {
-    changeHiType() {
-      this.sendMessage(cmds.UPDATE_WEB_CONFIG, { page: 'encourager', key: 'hitokoto_type', value: this.webConfig.hitokoto_type })
-    }
-  }
 }
 </script>
 <style lang='less' scoped>
