@@ -21,6 +21,7 @@ const driver = new Driver({
             scope: 'globalState',
             key: 'hasActiveDriver',
             value: true,
+            sub: 'common',
         })
     }, // 关闭回调
 })

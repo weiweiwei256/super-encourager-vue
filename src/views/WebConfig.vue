@@ -174,7 +174,9 @@ export default {
                     rootPath: 'rootPath',
                 },
                 globalState: {
-                    hasActiveDriver: false,
+                    common: {
+                        hasActiveDriver: false,
+                    },
                     encourager: { hitokoto_type: '' },
                 },
             }

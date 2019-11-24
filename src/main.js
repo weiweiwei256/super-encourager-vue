@@ -50,7 +50,7 @@ store.dispatch(types.POST_MESSAGE, { cmdKey: cmds.INIT }).then(result => {
         store,
         render: h => h(App),
     }).$mount('#app')
-    if (!result.extra.hasActiveDriver) {
+    if (!result.globalState.common.hasActiveDriver) {
         driver.start(vm)
     }
 })
