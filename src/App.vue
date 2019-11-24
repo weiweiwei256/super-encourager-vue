@@ -256,6 +256,11 @@ export default {
         color: #409eff;
     }
 }
+/deep/ .el-drawer__body {
+    padding-left: 10px;
+    padding-right:10px;
+    color: initial;
+}
 </style>
 
 
