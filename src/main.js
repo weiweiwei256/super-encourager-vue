@@ -52,5 +52,11 @@ store.dispatch(types.POST_MESSAGE, { cmdKey: cmds.INIT }).then(result => {
     }).$mount('#app')
     if (!result.globalState.common.hasActiveDriver) {
         driver.start(vm)
+        vm.sendMessage(cmds.UPDATE_WEB_CONFIG, {
+            scope: 'globalState',
+            key: 'hasActiveDriver',
+            value: true,
+            sub: 'common',
+        })
     }
 })

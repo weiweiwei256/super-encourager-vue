@@ -1,9 +1,7 @@
 import Driver from 'driver.js'
 import { Message } from 'element-ui'
-import Vue from 'vue'
 import 'driver.js/dist/driver.min.css'
 import * as cmds from '@/store/cmd-constant.js'
-let vm = null
 const driver = new Driver({
     animate: true, // Whether to animate or not
     opacity: 0.5,
@@ -17,20 +15,17 @@ const driver = new Driver({
     prevBtnText: '上一步', // Previous button text
     onReset: () => {
         Message('点击右上按钮"使用向导"可再次使用')
-        vm.sendMessage(cmds.UPDATE_WEB_CONFIG, {
-            scope: 'globalState',
-            key: 'hasActiveDriver',
-            value: true,
-            sub: 'common',
-        })
     }, // 关闭回调
 })
 let steps = [
     {
         element: '#view-nav',
         popover: {
-            title: '导航',
-            description: '点击可以进入:鼓励页,娱乐页,常用API页,工具页,设置页和关于页',
+            title: '分页导航',
+            description: `
+            通过这里你可以进入:鼓励页,娱乐页,常用API页,工具页,设置页和关于页
+          
+            `,
             // position can be left, left-center, left-bottom, top,
             // top-center, top-right, right, right-center, right-bottom,
             // bottom, bottom-center, bottom-right, mid-center
@@ -173,6 +168,14 @@ let steps = [
             description: `超级鼓励师的定位、架构设计等信息`,
             position: 'right-center',
         },
+        onPrevious: () => {
+             // 模拟点击行为
+             document.getElementById('to-setting').dispatchEvent(new MouseEvent('click'))
+             driver.preventMove()
+             setTimeout(() => {
+                 driver.movePrevious()
+             }, 100)
+        },
         onNext: () => {
             // 模拟点击行为
             document.getElementById('to-about').dispatchEvent(new MouseEvent('click'))
@@ -193,8 +196,7 @@ let steps = [
     },
 ]
 const myDriver = {
-    start(vmObj) {
-        vm = vmObj
+    start() {
         driver.defineSteps(steps)
         driver.start()
     },
