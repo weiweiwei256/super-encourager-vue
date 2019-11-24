@@ -56,7 +56,7 @@
         </div>
         <div class='footer'>
             <el-button @click.stop='showSaveDialog=true'>保存</el-button>
-            <p>备注:由于精力与技术有限,暂仅支持保存二维码到特定目录:<br><b>{{savePath}}</b></p>
+            <el-button @click.stop='openUserResources'>查看二维码文件</el-button>
         </div>
         <el-dialog title="提示"
             :visible.sync="showSaveDialog"
@@ -116,6 +116,9 @@ export default {
             this.sendMessage(cmds.SAVE_FILE, { saveData: dataURL, fileName: this.fileName + '.png' }).then(({ msg }) => {
                 this.$message(msg);
             })
+        },
+        openUserResources() {
+            this.sendMessage(cmds.OPEN_DIALOG, { subpath: 'user-resources' })
         }
     }
 }

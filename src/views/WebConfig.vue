@@ -85,7 +85,7 @@
         </el-form>
         <div class='btn-container'>
             <el-button @click='reset'>重置设置</el-button>
-            <el-tooltip content="查看鼓励师保存到本地的资源：images目录下是美图目录"
+            <el-tooltip content="查看鼓励师保存到本地的资源：管理images(美图目录)和user-resources(用户资源目录)"
                 placement="top">
                 <el-button @click='openRootPath'>查看资源</el-button>
             </el-tooltip>
@@ -177,6 +177,7 @@ export default {
                     encourager: { hitokoto_type: '' },
                 },
             }
+            this.saveKeyword();
         },
         openRootPath() {
             this.sendMessage(cmds.OPEN_DIALOG)

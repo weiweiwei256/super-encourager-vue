@@ -60,6 +60,8 @@ const mock = {
         }
     },
     [cmds.OPEN_DIALOG]: arg => {
+        let { subpath } = arg
+        console.log(subpath)
         return {
             msg: '打开对话框',
         }

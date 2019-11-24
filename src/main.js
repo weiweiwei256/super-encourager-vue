@@ -1,3 +1,11 @@
+/*
+ * @Author: your name
+ * @Date: 2019-11-18 23:22:58
+ * @LastEditTime: 2019-11-24 19:18:58
+ * @LastEditors: your name
+ * @Description: In User Settings Edit
+ * @FilePath: /super-encourager-vue/src/main.js
+ */
 import Vue from 'vue'
 import './plugins/axios'
 import 'flex.css'
@@ -35,7 +43,7 @@ Vue.mixin({
             return arg ? store.getters[name](arg) : store.getters[name]
         },
         // 发送命令到extension 并返回结果
-        async sendMessage(cmdKey, value) {
+        async sendMessage(cmdKey, value = {}) {
             let data = await this.dispatch(types.POST_MESSAGE, { cmdKey, value })
             console.log('前端页面收到:' + JSON.stringify(data))
             return data
