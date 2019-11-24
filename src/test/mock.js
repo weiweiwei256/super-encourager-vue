@@ -26,9 +26,9 @@ const mock = {
             },
             extra: {
                 rootPath: 'rootPath',
-                driver: false,
             },
             globalState: {
+                hasActiveDriver: false,
                 encourager: { hitokoto_type: 'c' },
             },
         }
@@ -51,17 +51,17 @@ const mock = {
     },
     [cmds.UPDATE_WEB_CONFIG]: arg => {
         let { scope, key, value, sub } = arg
-        console.log(scope)
-        console.log(key)
-        console.log(value)
-        console.log(sub)
+        console.log('scope', scope)
+        console.log('key', key)
+        console.log('value', value)
+        console.log('sub', sub)
         return {
             msg: '更新webconfig',
         }
     },
     [cmds.OPEN_DIALOG]: arg => {
         let { subpath } = arg
-        console.log(subpath)
+        console.log('subpath', subpath)
         return {
             msg: '打开对话框',
         }
@@ -72,8 +72,8 @@ const mock = {
         }
     },
     [cmds.CALL_ENTERAINMENT]: ({ type, name }) => {
-        console.log(type)
-        console.log(name)
+        console.log('type', type)
+        console.log('name', name)
         return {
             msg: '调用娱乐成功',
         }

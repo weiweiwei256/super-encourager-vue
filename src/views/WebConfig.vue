@@ -159,6 +159,7 @@ export default {
             this.sendMessage(cmds.UPDATE_WEB_CONFIG, { scope, sub, key, value })
         },
         reset() {
+            // 这里是默认值  需于扩展的默认值保持一致
             this.webConfig = {
                 config: {
                     keyword: '石原里美 绿色森林 新垣结衣 ⭐我的最爱',
@@ -171,9 +172,9 @@ export default {
                 },
                 extra: {
                     rootPath: 'rootPath',
-                    activeDriver: false,
                 },
                 globalState: {
+                    hasActiveDriver: false,
                     encourager: { hitokoto_type: '' },
                 },
             }

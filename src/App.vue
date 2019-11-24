@@ -36,6 +36,32 @@
                     style='font-size:20px'>内推</el-link>
             </div>
         </div>
+        <el-dialog title="简历心得"
+            :visible.sync="showResumeTips"
+            top='5vh'
+            width="80%">
+            <p>• 简历页数不要过少，正常有3,4年工作经验的简历怎么也得3,4页，别为了页数而压缩内容。</p>
+            <p>• 公共信息展示: 博客浏览量（csdn广告太多本人不用了，掘金曝光高于简书）、开源项目、github、star数量等、对于公共资源的深入理解和改进。提供公共链接或二维码</p>
+            <p>• 个人技能:</p>
+            <p>○ 注意分类：要把相同类型的技术集中分类，切忌胡乱堆砌。 例如：要把git和svn放一类，基本专业性的体现。</p>
+            <p>○ 主要描述：我的个人习惯如下</p>
+            <p>§ 了解：自己没有实践，但是了解过定位和价值等信息</p>
+            <p>§ 熟悉：自己实际使用过，有项目体现，但未深入底层源码或者深入研究原理</p>
+            <p>§ 精通：自己深层次使用过，跟过底层代码，并可以独立解决疑难问题（精通要求很高，很可能会被追问，客观实际一点）</p>
+            <p>• 项目经历：</p>
+            <p>○ 建议将项目定位和价值说明清楚，可以与自己的定位和价值分开说明。最重要的是要有结果说明。例如多少人使用，成功交付，对公司的价值等等。如果是负责架构方面的工作，尽量上个架构图，绝对的亮点。</p>
+            <p>○ 涉及到的技术可以分类罗列，难关攻克可以单独说明，但要避免陷入技术细节而且要有难度并体现自己的能力（准备好被追问）</p>
+            <p>• 自我评价：</p>
+            <p>○ 罗列要有清晰的角度分类。</p>
+            <p>○ 一定要和上面的项目经历有呼应，相互增强和体现。</p>
+            <p>○ 责任感，抗压能力，学习成长能力都可以说下，别草草了之。</p>
+              注：RUNNERUP经历经验有限，仅有心得，特此分享。希望对你有帮助，欢迎补充。
+            <span slot="footer"
+                class="dialog-footer">
+                <el-button type="primary"
+                    @click="showResumeTips=false">确 定</el-button>
+            </span>
+        </el-dialog>
         <el-drawer title="伴鱼内推"
             :visible.sync="showAd"
             size='60'
@@ -54,6 +80,9 @@
                         其他想要了解的也可以邮件交流 简历内推email：(点击即可编辑邮件)
                         <a href="mailto:super_encourager@163.com?subject=伴鱼内推&body=祝好；">super_encourager@163.com</a>
                         我每天都会处理并及时答复</p>
+                    <p>福利: <el-link type="primary"
+                            @click="showResumeTips=true">简历编辑心得,点击查看</el-link>
+                    </p>
         </el-drawer>
     </div>
 </template>
@@ -85,12 +114,13 @@ export default {
         return {
             showAd: false,
             // TEST:
-            activeItem: 'test',
-            //activeItem: 'encourager', // 需是全局全局page常量
+            // activeItem: 'test',
+            activeItem: 'encourager', // 需是全局全局page常量
             // count down
             Countdowner: undefined,
             countDown: 0,
             driver,
+            showResumeTips: false,
         };
     },
     computed: {

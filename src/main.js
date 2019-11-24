@@ -1,11 +1,3 @@
-/*
- * @Author: your name
- * @Date: 2019-11-18 23:22:58
- * @LastEditTime: 2019-11-24 19:18:58
- * @LastEditors: your name
- * @Description: In User Settings Edit
- * @FilePath: /super-encourager-vue/src/main.js
- */
 import Vue from 'vue'
 import './plugins/axios'
 import 'flex.css'
@@ -54,11 +46,11 @@ Vue.mixin({
 store.dispatch(types.POST_MESSAGE, { cmdKey: cmds.INIT }).then(result => {
     console.log(result)
     store.commit(types.SET_SETTING, result)
-    new Vue({
+    let vm = new Vue({
         store,
         render: h => h(App),
     }).$mount('#app')
-    if (result.extra.activeDriver) {
-        driver.start()
+    if (!result.extra.hasActiveDriver) {
+        driver.start(vm)
     }
 })
