@@ -10,8 +10,7 @@
                 <el-input type="textarea"
                     placeholder="设置美图关键字,用空格分隔多个关键字"
                     @blur='saveKeyword'
-                    autosize
-                    :rows='3'
+                    :rows='2'
                     v-model="webConfig.config.keyword">
                 </el-input>
             </el-form-item>
@@ -43,19 +42,22 @@
                 </el-input-number>
             </el-form-item>
 
-            <el-form-item label="激活前提示">
+            <el-form-item label="召唤提示"
+                id='needTip'>
                 <el-switch v-model="webConfig.config.needTip"
                     active-text="消息提示"
-                    inactive-text="直接激活">
+                    inactive-text="直接召唤">
                 </el-switch>
             </el-form-item>
-            <el-form-item label="搜索动图">
+            <el-form-item label="搜索动图"
+                id='isGif'>
                 <el-switch v-model="webConfig.config.isGif">
                 </el-switch>
             </el-form-item>
-            <el-form-item label="每个关键字最大图片数量">
+            <el-form-item label="关键字最大图片数量"
+                id='maxImageNum'>
                 <el-input-number v-model="webConfig.config.maxImageNum"
-                    :min="5"
+                    :min="10"
                     :step="5">
                 </el-input-number>
             </el-form-item>
@@ -81,11 +83,21 @@
                 </el-select>
             </el-form-item>
         </el-form>
-        <el-button @click='reset'>恢复默认属性</el-button>
+        <div class='btn-container'>
+            <el-button @click='reset'>重置设置</el-button>
+            <el-tooltip content="查看鼓励师保存到本地的资源：images目录下是美图目录"
+                placement="top">
+                <el-button @click='openRootPath'>查看资源</el-button>
+            </el-tooltip>
+        </div>
+
     </div>
 </template>
 <script>
 import * as cmds from '@/store/cmd-constant.js';
+// scope constant
+const GLOBAL_STATE = 'globalState';
+const CONFIG = 'config';
 export default {
     name: 'web-config',
     components: {
@@ -101,25 +113,25 @@ export default {
     watch: {
         // 深度watch每一个值的变化 初次init时不触发属性监听
         "webConfig.config.timeLast": function (newVal) {
-            this.isInit && this.setConifg('config', 'timeLast', newVal)
+            this.isInit && this.setConifg(CONFIG, 'timeLast', newVal)
         },
         "webConfig.config.type": function (newVal) {
-            this.isInit && this.setConifg('config', 'type', newVal)
+            this.isInit && this.setConifg(CONFIG, 'type', newVal)
         },
         "webConfig.config.timeInterval": function (newVal) {
-            this.isInit && this.setConifg('config', 'timeInterval', newVal)
+            this.isInit && this.setConifg(CONFIG, 'timeInterval', newVal)
         },
         "webConfig.config.needTip": function (newVal) {
-            this.isInit && this.setConifg('config', 'needTip', newVal)
+            this.isInit && this.setConifg(CONFIG, 'needTip', newVal)
         },
         "webConfig.config.isGif": function (newVal) {
-            this.isInit && this.setConifg('config', 'isGif', newVal)
+            this.isInit && this.setConifg(CONFIG, 'isGif', newVal)
         },
         "webConfig.config.maxImageNum": function (newVal) {
-            this.isInit && this.setConifg('config', 'maxImageNum', newVal)
+            this.isInit && this.setConifg(CONFIG, 'maxImageNum', newVal)
         },
         "webConfig.globalState.encourager.hitokoto_type": function (newVal) {
-            this.isInit && this.setConifg('globalState', 'hitokoto_type', newVal, 'encourager')
+            this.isInit && this.setConifg(GLOBAL_STATE, 'hitokoto_type', newVal, 'encourager')
         },
     },
     created() {
@@ -135,7 +147,7 @@ export default {
         saveKeyword() {
             // 处理换行问题
             let keyword = this.webConfig.config.keyword.replace(/[\r\n]/g, " ");
-            this.setConifg('config', 'keyword', keyword)
+            this.setConifg(CONFIG, 'keyword', keyword)
         },
         /**
          *  scope 属性所属域: config,extra,globalState
@@ -165,7 +177,10 @@ export default {
                     encourager: { hitokoto_type: '' },
                 },
             }
-        }
+        },
+        openRootPath() {
+            this.sendMessage(cmds.OPEN_DIALOG)
+        },
     }
 }
 </script>
@@ -176,6 +191,9 @@ export default {
         margin: 0 auto;
         margin-top: 20px;
         width: 90%;
+    }
+    .btn-container {
+        text-align: center;
     }
 }
 </style>

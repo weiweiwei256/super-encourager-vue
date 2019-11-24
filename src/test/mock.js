@@ -21,7 +21,7 @@ const mock = {
                 timeLast: 10,
                 timeInterval: 30,
                 needTip: false,
-                maxImageNum: 5,
+                maxImageNum: 10,
                 isGif: false,
             },
             extra: {
@@ -50,8 +50,18 @@ const mock = {
         msg: '关闭前数据',
     },
     [cmds.UPDATE_WEB_CONFIG]: arg => {
+        let { scope, key, value, sub } = arg
+        console.log(scope)
+        console.log(key)
+        console.log(value)
+        console.log(sub)
         return {
             msg: '更新webconfig',
+        }
+    },
+    [cmds.OPEN_DIALOG]: arg => {
+        return {
+            msg: '打开对话框',
         }
     },
     [cmds.SAVE_FILE]: ({ fileName }) => {

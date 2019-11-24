@@ -5,6 +5,7 @@ const driver = new Driver({
     animate: true, // Whether to animate or not
     opacity: 0.5,
     padding: 5,
+    stageBackground: '#306b8e',
     allowClose: false,
     showButtons: true, // Do not show control buttons in footer
     doneBtnText: '感谢你的使用', // Text on the last button
@@ -126,7 +127,37 @@ let steps = [
             position: 'bottom-center',
         },
     },
-
+    {
+        element: '#needTip',
+        popover: {
+            title: '召唤提示',
+            description: `直接召唤：鼓励师被召唤时，直接出现在当前编辑区域的右侧区域。<br>
+                消息提示：vscode弹出是否召唤鼓励师的提示，点击确定后才召唤。<br>
+                ps：你也可以通过点击编辑器右上礼物图标、下方召唤鼓励师状态栏、右键菜单和Cmd/Ctrl+F1召唤`,
+            position: 'bottom-center',
+        },
+    },
+    {
+        element: '#isGif',
+        popover: {
+            title: '是否搜索动图',
+            description: `
+            开启后，会根据关键字搜索高清动图。但是受搜索引擎能力影响，准确度会降低
+        `,
+            position: 'top-center',
+        },
+    },
+    {
+        element: '#maxImageNum',
+        popover: {
+            title: '关键字最大图片数量',
+            description: `
+            每个关键字单独计算。<br>
+            超过该数量就不再通过网络获取美图了。
+        `,
+            position: 'top-center',
+        },
+    },
     {
         element: '#to-about',
         popover: {
