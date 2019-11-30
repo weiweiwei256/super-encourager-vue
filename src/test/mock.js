@@ -29,7 +29,7 @@ const mock = {
             },
             globalState: {
                 common: {
-                    hasActiveDriver: false,
+                    hasActiveDriver: true,
                 },
                 encourager: { hitokoto_type: 'c' },
             },

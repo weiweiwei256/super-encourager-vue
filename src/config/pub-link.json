@@ -77,9 +77,16 @@
     ],
     "手册": [
         {
-            "name": "vue官网",
+            "name":"vant",
+            "url": "https://youzan.github.io/vant/#/zh-CN/intro",
+            "desc":"轻量、可靠的移动端 Vue 组件库,比mint-ui组件更丰富，提供更多更合理的属性，可增量引入",
+            "isNew":true
+        },
+        {
+            "name":"vue官网",
             "url": "https://cn.vuejs.org/v2/guide/"
         },
+        
         {
             "name": "mint-ui",
             "url": "https://mint-ui.github.io/docs/#/zh-cn2"
@@ -107,6 +114,12 @@
     ],
     "chrome插件推荐": [
         {
+            "name":"octotree",
+            "url":"https://www.octotree.io/",
+            "desc":"简洁的github项目源码导航，方便你对于github工程的浏览，搜索等操作",
+            "isNew":true
+        },
+        {
             "name": "vimium",
             "url": "https://www.jianshu.com/p/f803bbba0ba5",
             "desc": "让使用chrome快的飞起"
@@ -123,6 +136,12 @@
         }
     ],
     "vscode插件推荐": [
+        {
+            "name":"Git Graph",
+            "url":"https://github.com/mhutchie/vscode-git-graph",
+            "desc":"可视化git管理工具",
+            "isNew":true
+        },
         {
             "name": "Copy Copy Paste",
             "url": "https://github.com/rockingskier/vscode-copy-copy-paste",

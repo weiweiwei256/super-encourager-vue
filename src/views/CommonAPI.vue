@@ -1,9 +1,14 @@
 <template>
     <div id="common-api">
+        <el-input placeholder="请输入搜索内容"
+        :autofocus="true"
+            v-model="search">
+            <template slot="prepend">搜索：</template>
+         </el-input>
         <div v-for="(item,key,index) of Publink"
             :key="index"
             class="link-container">
-            <link-group :title='key'
+            <link-group :title='key' :search="search"
                 :list='item'></link-group>
         </div>
         <el-link href='https://github.com/weiweiwei256/super-encourager/issues/6'>你也来分享下吧！</el-link>
@@ -22,6 +27,7 @@ export default {
     },
     data() {
         return {
+            search:'',
             Publink: Publink
         }
     },
