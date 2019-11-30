@@ -118,7 +118,7 @@ export default {
             })
         },
         openUserResources() {
-            this.sendMessage(cmds.OPEN_DIALOG, { subpath: 'user-resources' })
+            this.sendMessage(cmds.OPEN_DIALOG, { subpath: 'resources' })
         }
     }
 }

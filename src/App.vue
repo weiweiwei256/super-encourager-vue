@@ -114,8 +114,8 @@ export default {
         return {
             showAd: false,
             // TEST:
-            // activeItem: 'test',
-            activeItem: 'encourager', // 需是全局全局page常量
+            activeItem: 'test',
+            // activeItem: 'encourager', // 需是全局全局page常量
             // count down
             Countdowner: undefined,
             countDown: 0,
