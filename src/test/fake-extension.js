@@ -7,11 +7,11 @@ const extension = {
         window.postMessage(arg)
     },
     // 后端接收到数据
-    onDidReceiveMessage: function({ msgCode, cmdKey, value }) {
+    onDidReceiveMessage: async function({ msgCode, cmdKey, value }) {
         console.log('extension接收到数据:' + JSON.stringify(value))
         let result
         if (mock[cmdKey] instanceof Function) {
-            result = mock[cmdKey](value)
+            result = await mock[cmdKey](value)
         } else if (mock[cmdKey] instanceof Object) {
             result = mock[cmdKey]
         } else if (!mock[cmdKey]) {

@@ -162,7 +162,7 @@ export default {
             // 这里是默认值  需于扩展的默认值保持一致
             this.webConfig = {
                 config: {
-                    keyword: '石原里美 绿色森林 新垣结衣 ⭐我的最爱',
+                    keyword: '石原里美 刘亦菲 古力娜扎 高圆圆 赵奕欢 江疏影 郑爽 范冰冰 新垣结衣 ⭐我的最爱',
                     timeLast: 20,
                     type: 'natural-hour',
                     timeInterval: 30,

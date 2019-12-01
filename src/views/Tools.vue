@@ -7,6 +7,7 @@
                 <el-radio-button :label="DATE_TRANSFORM">日期<=>时间戳</el-radio-button>
                 <el-radio-button :label="STRING_RELATED">字符串处理</el-radio-button>
                 <el-radio-button :label="CALCULATOR">计算器</el-radio-button>
+                <!-- <el-radio-button :label="IMAGE_CROPPER">图片剪切工具</el-radio-button> -->
             </el-radio-group>
         </div>
         <div class='tool-container'>
@@ -15,9 +16,10 @@
                 <el-link href='https://github.com/weiweiwei256/super-encourager/issues/5'>说说你还想要啥工具</el-link>
             </div>
             <QRcode v-if='activeTools===QR_CODE'></QRcode>
-            <DateTransform v-if='activeTools===DATE_TRANSFORM'></DateTransform>
-            <StringRelated v-if='activeTools===STRING_RELATED'></StringRelated>
+            <date-transform v-if='activeTools===DATE_TRANSFORM'></date-transform>
+            <string-related v-if='activeTools===STRING_RELATED'></string-related>
             <calculator v-if='activeTools===CALCULATOR'></calculator>
+            <image-cropper v-if='activeTools===IMAGE_CROPPER'></image-cropper>
         </div>
     </div>
 </template>
@@ -27,21 +29,26 @@ import QRcode from '@/substance/tools/QRcode.vue'
 import DateTransform from '@/substance/tools/DateTransform.vue'
 import StringRelated from '@/substance/tools/StringRelated.vue'
 import Calculator from '@/substance/tools/Calculator.vue'
+import ImageCropper from '@/substance/tools/ImageCropper.vue'
 export default {
     name: 'tools',
     components: {
         QRcode,
         DateTransform,
         StringRelated,
-        Calculator
+        Calculator,
+        ImageCropper
     },
     data() {
         return {
             webConfig: {},
             QR_CODE: 'qrcode',
-            DATE_TRANSFORM: 'date_transform',
-            STRING_RELATED: 'string_related',
+            DATE_TRANSFORM: 'date-transform',
+            STRING_RELATED: 'string-related',
             CALCULATOR: 'calculator',
+            IMAGE_CROPPER: 'image-cropper',
+            // TEST:
+            // activeTools: 'image-cropper',
             activeTools: '',  // 需要与常量保持一致
         }
     },

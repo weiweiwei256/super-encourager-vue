@@ -13,7 +13,7 @@ export const ENCOURAGER_IMAGE = 'super/command/encourager_image'
 export const ENCOURAGER_CHANGE_IMAGE_COLLECT = 'super/command/encourager_change_image_collect'
 // tools
 export const SAVE_FILE = 'super/command/saveFile'
-
+export const GET_DEFAULT_IMAGE = 'super/command/getDefaultImage'
 // entertainment
 export const CALL_ENTERAINMENT = 'super/command/callEntertainment'
 

@@ -83,6 +83,7 @@ export default {
             margin-left: 5px;
             margin-bottom: 5px;
             min-width: 115px;
+            padding: 7px 14px;
         }
     }
 }

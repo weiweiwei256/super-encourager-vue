@@ -5,7 +5,7 @@
                 round
                 class='mode-btn'
                 size='mini'>
-                {{isNormalMode?"切换至高级模式":"切换至常规模式"}}</p>
+                {{isNormalMode?"切换至高级模式":"切换至常规模式"}}
             </el-button>
         </div>
         <input class="result"

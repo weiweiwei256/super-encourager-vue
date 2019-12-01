@@ -1,5 +1,6 @@
 import * as cmds from '@/store/cmd-constant.js'
 const defaultImg = require('@/assets/img/石原里美.jpeg')
+import utils from '@/global/utils.js'
 // 模拟vscode对象
 const mock = {
     [cmds.LOG]: ({ msg }) => {
@@ -16,7 +17,7 @@ const mock = {
         console.log('发送设置!')
         return {
             config: {
-                keyword: '石原里美 绿色森林 新垣结衣 ⭐我的最爱',
+                keyword: '石原里美 刘亦菲 古力娜扎 高圆圆 赵奕欢 江疏影 郑爽 范冰冰 新垣结衣 ⭐我的最爱',
                 type: 'natural-hour',
                 timeLast: 10,
                 timeInterval: 30,
@@ -78,6 +79,12 @@ const mock = {
         console.log('name', name)
         return {
             msg: '调用娱乐成功',
+        }
+    },
+    [cmds.GET_DEFAULT_IMAGE]: async () => {
+        let base64 = await utils.convertImgToBase64(defaultImg)
+        return {
+            base64,
         }
     },
 }
