@@ -202,7 +202,7 @@ export default {
                             NProgress.done();
                             if (res.data.success) {
                                 this.$message({
-                                    message: '提交成功',
+                                    message: '提交成功,等待审核中...',
                                     type: 'success'
                                 });
                                 this.$refs['addForm'].resetFields();
