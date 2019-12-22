@@ -8,6 +8,7 @@ export const STOP_CLOSE = 'super/command/stopClose'
 
 export const UPDATE_WEB_CONFIG = 'super/command/updateWebConfig'
 export const OPEN_DIALOG = 'super/command/openDialog'
+export const PROXY_COMMUNICATION = 'super/command/proxy_communication'
 // encoureager page
 export const ENCOURAGER_IMAGE = 'super/command/encourager_image'
 export const ENCOURAGER_CHANGE_IMAGE_COLLECT = 'super/command/encourager_change_image_collect'

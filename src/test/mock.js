@@ -17,7 +17,8 @@ const mock = {
         console.log('发送设置!')
         return {
             config: {
-                keyword: '石原里美 刘亦菲 古力娜扎 高圆圆 赵奕欢 江疏影 郑爽 范冰冰 新垣结衣 ⭐我的最爱',
+                keyword:
+                    '石原里美 刘亦菲 古力娜扎 高圆圆 赵奕欢 江疏影 郑爽 范冰冰 新垣结衣 ⭐我的最爱',
                 type: 'natural-hour',
                 timeLast: 10,
                 timeInterval: 30,
@@ -86,6 +87,14 @@ const mock = {
         return {
             base64,
         }
+    },
+    [cmds.PROXY_COMMUNICATION]: async arg => {
+        let result = await window.axios({
+            method: arg.method,
+            url: arg.url,
+            data: arg.params,
+        })
+        return result.data
     },
 }
 export default mock

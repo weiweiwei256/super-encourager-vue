@@ -104,6 +104,8 @@
 </template>
 
 <script>
+import * as cmds from '@/store/cmd-constant.js';
+import * as types from '@/store/types.js'
 import ShareArea from '@/substance/ShareArea.vue'
 import NProgress from 'nprogress'
 export default {
@@ -159,12 +161,12 @@ export default {
     },
     methods: {
         loadBlogs() {
-            return this.axios.get(`/blogs`).then(data => {
-                this.blogs = data.data.data.blogs;
+            return this.sendMessage(cmds.PROXY_COMMUNICATION, { method: 'get', url: 'http://39.105.32.133/blogs' }).then(data => {
+                this.blogs = data.data.blogs;
             })
         },
-        addBlog(params){
-           return this.axios.post(`/addblog`, params)
+        addBlog(params) {
+            return this.sendMessage(cmds.PROXY_COMMUNICATION, { method: 'post', url: 'http://39.105.32.133/addblog', params })
         },
         reloadBlogs() {
             this.loadBlogs().then(() => {
