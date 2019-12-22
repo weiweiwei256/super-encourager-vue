@@ -20,6 +20,13 @@
       "unicode_decimal": 59153
     },
     {
+      "icon_id": "2815692",
+      "name": "推荐",
+      "font_class": "jian",
+      "unicode": "e604",
+      "unicode_decimal": 58884
+    },
+    {
       "icon_id": "3679952",
       "name": "娱乐",
       "font_class": "yule",

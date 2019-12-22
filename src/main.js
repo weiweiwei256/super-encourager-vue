@@ -3,11 +3,16 @@ import './plugins/axios'
 import 'flex.css'
 import App from './App.vue'
 import './plugins/element.js'
+import filters from '@/filters/index.js'
 import store from './store/store.js'
 import * as types from '@/store/types.js'
 import * as cmds from '@/store/cmd-constant.js'
 import driver from './global/driver.js'
 Vue.config.productionTip = false
+// 注册全局过滤器
+Object.keys(filters).forEach(key => {
+    Vue.filter(key, filters[key])
+})
 // 全局混入vuex快捷访问方法
 Vue.mixin({
     data() {
@@ -20,7 +25,7 @@ Vue.mixin({
             TOOLS: 'tools',
             WEB_CONFIG: 'web-config',
             ABOUT: 'about',
-
+            RECOMMENDATION: 'recommendation',
             TEST: 'test',
         }
     },

@@ -18,6 +18,9 @@
                 id='to-tools'
                 :label='TOOLS'>&#xe6da;</el-radio-button>
             <el-radio-button class="iconfont item"
+                id='to-recommendation'
+                :label='RECOMMENDATION'>&#xe604;</el-radio-button>
+            <el-radio-button class="iconfont item"
                 id='to-setting'
                 :label='WEB_CONFIG'> &#xe611;</el-radio-button>
             <el-radio-button class="iconfont item"

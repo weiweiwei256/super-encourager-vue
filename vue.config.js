@@ -2,6 +2,7 @@ const publicPath = process.env.VUE_APP_PUBLICPATH
 const outputDir = process.env.VUE_APP_OUTPUT_DIR
 const assetsDir = process.env.VUE_APP_ASSETS_DIR
 const webpack = require('webpack')
+const serverUrl ='http://39.105.32.133/';
 module.exports = {
     publicPath,
     outputDir,
@@ -9,6 +10,12 @@ module.exports = {
     devServer: {
         host: 'localhost',
         port: 8080,
+        proxy: {
+            '/': {
+                target: serverUrl,
+            },
+         
+        },
     },
     productionSourceMap: false,
     configureWebpack: config => {
