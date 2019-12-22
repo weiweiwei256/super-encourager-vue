@@ -65,7 +65,6 @@ export default {
 </script>
 <style lang='less' scoped>
 #tools {
-    height: 100%;
     .list {
         /deep/ .el-radio-button__inner {
             padding: 10px;

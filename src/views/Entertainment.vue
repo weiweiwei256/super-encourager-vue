@@ -44,7 +44,6 @@ export default {
 </script>
 <style lang='less' scoped>
 #entertainment {
-    height: 100%;
     .container {
         text-align: center;
     }

@@ -202,6 +202,7 @@ export default {
         }
     }
     .page-content {
+        overflow-y: scroll;
         margin-left: 40px;
     }
     .page-footer {
