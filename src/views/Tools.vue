@@ -7,19 +7,22 @@
                 <el-radio-button :label="DATE_TRANSFORM">日期<=>时间戳</el-radio-button>
                 <el-radio-button :label="STRING_RELATED">字符串处理</el-radio-button>
                 <el-radio-button :label="CALCULATOR">计算器</el-radio-button>
-                <!-- <el-radio-button :label="IMAGE_CROPPER">图片剪切工具</el-radio-button> -->
             </el-radio-group>
         </div>
+        <div class='link-container'>
+            <common-link url='https://doka.photo/'
+                style='margin-right:20px'
+                desc="`支持旋转，剪切，滤镜，标记等功能`">图片编辑</common-link>
+            <common-link url='https://tinypng.com/'>图片压缩</common-link>
+        </div>
         <div class='tool-container'>
-            <div class='introduction'
-                v-if='!activeTools'>
-                <el-link href='https://github.com/weiweiwei256/super-encourager/issues/5'>说说你还想要啥工具</el-link>
-            </div>
             <QRcode v-if='activeTools===QR_CODE'></QRcode>
             <date-transform v-if='activeTools===DATE_TRANSFORM'></date-transform>
             <string-related v-if='activeTools===STRING_RELATED'></string-related>
             <calculator v-if='activeTools===CALCULATOR'></calculator>
-            <image-cropper v-if='activeTools===IMAGE_CROPPER'></image-cropper>
+        </div>
+        <div class='introduction'>
+            <el-link href='https://github.com/weiweiwei256/super-encourager/issues/5'>说说你还想要啥工具</el-link>
         </div>
     </div>
 </template>
@@ -29,7 +32,7 @@ import QRcode from '@/substance/tools/QRcode.vue'
 import DateTransform from '@/substance/tools/DateTransform.vue'
 import StringRelated from '@/substance/tools/StringRelated.vue'
 import Calculator from '@/substance/tools/Calculator.vue'
-import ImageCropper from '@/substance/tools/ImageCropper.vue'
+import CommonLink from '@/components/CommonLink.vue'
 export default {
     name: 'tools',
     components: {
@@ -37,7 +40,7 @@ export default {
         DateTransform,
         StringRelated,
         Calculator,
-        ImageCropper
+        CommonLink,
     },
     data() {
         return {
@@ -46,9 +49,7 @@ export default {
             DATE_TRANSFORM: 'date-transform',
             STRING_RELATED: 'string-related',
             CALCULATOR: 'calculator',
-            IMAGE_CROPPER: 'image-cropper',
             // TEST:
-            // activeTools: 'image-cropper',
             activeTools: '',  // 需要与常量保持一致
         }
     },
@@ -74,13 +75,21 @@ export default {
             border-radius: 4px;
         }
     }
+    .link-container {
+        margin-top: 20px;
+        text-align: center;
+    }
     .tool-container {
         margin-top: 20px;
         margin-left: 20px;
         margin-right: 20px;
-        .introduction {
-            text-align: center;
-        }
+    }
+    .introduction {
+        position: absolute;
+        bottom: 300px;
+        left: 0;
+        right: 0;
+        text-align: center;
     }
 }
 </style>

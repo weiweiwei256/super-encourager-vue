@@ -129,14 +129,6 @@ export default {
     .show {
         overflow: auto;
     }
-    .property {
-        /deep/ .el-form-item {
-            margin-bottom: 10px;
-        }
-        /deep/ .el-form-item__content {
-            // line-height: 20px;
-        }
-    }
     .footer {
         text-align: center;
     }
