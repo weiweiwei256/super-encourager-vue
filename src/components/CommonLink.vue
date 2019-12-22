@@ -40,7 +40,7 @@ export default {
         placement: {
             type: String,
             required: false,
-            default: 'top',
+            default: 'bottom',
         }
     }
 }

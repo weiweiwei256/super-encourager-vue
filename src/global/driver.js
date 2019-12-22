@@ -23,8 +23,7 @@ let steps = [
         popover: {
             title: '分页导航',
             description: `
-            通过这里你可以进入:鼓励页,娱乐页,常用API页,工具页,设置页和关于页
-          
+            通过这里你可以进入:鼓励页,娱乐页,常用API页,工具页,推荐页,设置页和关于页
             `,
             // position can be left, left-center, left-bottom, top,
             // top-center, top-right, right, right-center, right-bottom,
@@ -77,7 +76,19 @@ let steps = [
             position: 'right-center',
         },
     },
-
+    {
+        element: '#to-recommendation',
+        popover: {
+            title: '推荐页',
+            description: `
+            收罗大家喜欢的博客/项目
+            <br>无需更新即可获取最新推荐
+            <br>所以有事没事可以多来看看
+            <br>自己也可以投递哦！
+            `,
+            position: 'right-center',
+        },
+    },
     {
         element: '#to-setting',
         popover: {

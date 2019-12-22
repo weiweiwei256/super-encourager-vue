@@ -7,6 +7,7 @@
                 @click.stop='reloadBlogs'>&#xe711;
             </span>
         </p>
+        <p style='font-size:10px'>投稿后，审核通过就可以在列表里看到啦！并会向提供的邮箱发送通知。由于都是人工审核，我尽量每天下班后都看看。<br>ps:本人干前端的，服务端水平有限，服务器配置也低。如出现获取不到的情况，多多包含，我会尽快处理。</p>
         <div class='blog-container'
             v-if='blogs.length'>
             <share-area v-for="(item,index) in blogs"
@@ -161,7 +162,7 @@ export default {
     },
     methods: {
         loadBlogs() {
-            return this.sendMessage(cmds.PROXY_COMMUNICATION, { method: 'get', url: 'http://39.105.32.133/blogs' }).then(data => {
+            return this.sendMessage(cmds.PROXY_COMMUNICATION, { method: 'get', url: 'http://39.105.32.133/graphql?query=%7B%0A%20%20blogs%20%7B%0A%20%20%20%20name%0A%20%20%20%20tags%0A%20%20%20%20user_link%0A%20%20%20%20title%0A%20%20%20%20address%0A%20%20%20%20desc%0A%20%20%20%20english%0A%20%20%20%20block%0A%20%20%20%20meta%20%7B%0A%20%20%20%20%20%20createdAt%0A%20%20%20%20%20%20updatedAt%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D' }).then(data => {
                 this.blogs = data.data.blogs;
             })
         },
