@@ -5,6 +5,9 @@
         扩展源码地址：<el-link href='https://github.com/weiweiwei256/super-encourager'>https://github.com/weiweiwei256/super-encourager</el-link>
         <p>鼓励师的web渲染端基于vue框架。渲染工程已完成extension(node端)与vue前端的通信封装，node端功能模拟并封装构建部署命令，可以快捷切换前端模拟开发和扩展端真实使用，极大的提升web渲染端的展现能力和扩展能能并极大的加快研发速度。</p>
         渲染工程源码地址：<el-link href='https://github.com/weiweiwei256/super-encourager-vue'>https://github.com/weiweiwei256/super-encourager-vue</el-link>
+        </p>
+        <p>推荐投递地址：<el-link href='http://39.105.32.133/public/backstage/index.html'>http://39.105.32.133/public/backstage/index.html</el-link>
+        </p>
     </div>
 </template>
 
